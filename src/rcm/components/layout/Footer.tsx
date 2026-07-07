@@ -134,7 +134,7 @@ export default function Footer() {
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-secondary shrink-0" />
                 <span className="text-slate-400 text-sm">
-                  {isMarketing ? "hello@myclinicboost.com" : "contact@evolvemedical.com"}
+                  {isMarketing ? "hello@myclinicboost.com" : "chitra@evolvehealthsource.com"}
                 </span>
               </li>
             </ul>

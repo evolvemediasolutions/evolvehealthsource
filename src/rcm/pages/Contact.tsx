@@ -32,7 +32,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-sm font-medium text-gray-500">Email</div>
-                  <div className="font-semibold text-gray-900">contact@evolvemedical.com</div>
+                  <div className="font-semibold text-gray-900">chitra@evolvehealthsource.com</div>
                 </div>
               </div>
               <div className="flex items-center gap-4">
