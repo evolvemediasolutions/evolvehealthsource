@@ -27,44 +27,44 @@ export default function Navbar() {
 
   const navLinks = isMarketing
     ? [
-        { name: 'Home', path: '/marketing/home' },
-        { name: 'Services', path: '/marketing/home#services' },
-        { name: 'Parent Portal', path: '/' },
-        { name: 'Contact Us', path: '/rcm/contact' },
-      ]
+      { name: 'Home', path: '/marketing/home' },
+      { name: 'Services', path: '/marketing/home#services' },
+      { name: 'Parent Portal', path: '/' },
+      { name: 'Contact Us', path: '/rcm/contact' },
+    ]
     : [
-        { name: 'Home', path: '/rcm/home' },
-        { name: 'About Us', path: '/rcm/about' },
-        {
-          name: 'Solutions',
-          path: '/rcm/solutions',
-          dropdown: [
-            { name: 'Revenue Cycle Management', path: '/rcm/solutions?tab=0' },
-            { name: 'Medical Coding Services', path: '/rcm/solutions?tab=1' },
-            { name: 'Medical Billing & Claims', path: '/rcm/solutions?tab=2' },
-            { name: 'Accounts Receivable', path: '/rcm/solutions?tab=3' },
-            { name: 'Denial Prevention & Recovery', path: '/rcm/solutions?tab=4' },
-          ]
-        },
-        {
-          name: 'Insights',
-          path: '/rcm/insights',
-          dropdown: [
-            { name: 'Blogs', path: '/rcm/insights' },
-            { name: 'Industry Updates', path: '/rcm/insights?category=industry' },
-            { name: 'RCM Resources', path: '/rcm/insights?category=resources' },
-          ]
-        },
-        { name: 'Careers', path: '/rcm/careers' },
-        { name: 'Contact', path: '/rcm/contact' },
-      ];
+      { name: 'Home', path: '/rcm/home' },
+      { name: 'About Us', path: '/rcm/about' },
+      {
+        name: 'Solutions',
+        path: '/rcm/solutions',
+        dropdown: [
+          { name: 'Revenue Cycle Management', path: '/rcm/solutions?tab=0' },
+          { name: 'Medical Coding Services', path: '/rcm/solutions?tab=1' },
+          { name: 'Medical Billing & Claims', path: '/rcm/solutions?tab=2' },
+          { name: 'Accounts Receivable', path: '/rcm/solutions?tab=3' },
+          { name: 'Denial Prevention & Recovery', path: '/rcm/solutions?tab=4' },
+        ]
+      },
+      {
+        name: 'Insights',
+        path: '/rcm/insights',
+        dropdown: [
+          { name: 'Blogs', path: '/rcm/insights' },
+          { name: 'Industry Updates', path: '/rcm/insights?category=industry' },
+          { name: 'RCM Resources', path: '/rcm/insights?category=resources' },
+        ]
+      },
+      { name: 'Careers', path: '/rcm/careers' },
+      { name: 'Contact', path: '/rcm/contact' },
+    ];
 
   return (
     <header
       className={cn(
         'fixed top-0 w-full z-50 transition-all duration-500 border-b',
         isScrolled || isMarketing
-          ? 'bg-white/90 backdrop-blur-lg border-slate-200 py-2 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)]'
+          ? 'bg-white/90 backdrop-blur-lg border-slate-200 py-1.5 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)]'
           : 'bg-transparent border-transparent py-3'
       )}
     >
@@ -86,10 +86,10 @@ export default function Navbar() {
               </>
             ) : (
               <img
-                src="/images/RCM/EvolveRCM Logo.png"
+                src="/images/RCM/EvolveRCM_Logo.png"
                 alt="Evolve RCM"
                 className={cn(
-                  "h-24 sm:h-32 w-auto object-contain transition-all duration-300 -my-6 sm:-my-8",
+                  "h-20 sm:h-26 w-auto object-contain transition-all duration-300 -my-4 sm:-my-6",
                   isScrolled ? "brightness-0" : ""
                 )}
               />
@@ -172,7 +172,7 @@ export default function Navbar() {
               to="/rcm/contact"
               className={cn(
                 "relative group overflow-hidden px-6 py-3 rounded-full font-bold text-sm text-white transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]",
-                isMarketing 
+                isMarketing
                   ? "bg-gradient-to-r from-teal-600 to-emerald-600 shadow-lg shadow-teal-600/25 hover:shadow-teal-600/45"
                   : "bg-gradient-to-r from-primary to-secondary shadow-lg shadow-primary/25 hover:shadow-primary/45"
               )}
