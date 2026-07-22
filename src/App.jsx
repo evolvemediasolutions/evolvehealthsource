@@ -56,18 +56,31 @@ function App() {
     <BrowserRouter>
       <ScrollToHash />
       <Routes>
-        {/* Main Gateway */}
-        <Route path="/" element={<Gateway />} />
-        
         {/* Existing Marketing Portal */}
         <Route path="/marketing/home" element={<MarketingHome />} />
+        <Route path="/myclinicboot" element={<MarketingHome />} />
+        <Route path="/myclinicboost" element={<MarketingHome />} />
         
-        {/* RCM Dedicated Sub-application */}
+        {/* Support old /rcm prefix routes */}
         <Route path="/rcm" element={<RcmLayout />}>
+          <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="solutions" element={<Solutions />} />
-          <Route path="services" element={<Solutions />} /> {/* Alias route supporting /rcm/services example */}
+          <Route path="services" element={<Solutions />} />
+          <Route path="insights" element={<Insights />} />
+          <Route path="insights/:slug" element={<BlogDetails />} />
+          <Route path="careers" element={<Careers />} />
+          <Route path="contact" element={<Contact />} />
+        </Route>
+
+        {/* RCM Dedicated Sub-application at root level */}
+        <Route path="/" element={<RcmLayout />}>
+          <Route index element={<Home />} />
+          <Route path="home" element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="solutions" element={<Solutions />} />
+          <Route path="services" element={<Solutions />} />
           <Route path="insights" element={<Insights />} />
           <Route path="insights/:slug" element={<BlogDetails />} />
           <Route path="careers" element={<Careers />} />

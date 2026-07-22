@@ -1,6 +1,7 @@
 
-import React, { useEffect } from 'react';
-import { Phone } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 // Marketing Sections
 import Hero from './marketing/Hero';
@@ -18,9 +19,10 @@ import Testimonials from './marketing/Testimonials';
 import GrowthAudit from './marketing/GrowthAudit';
 import FAQSection from './marketing/FAQSection';
 import FinalCTA from './marketing/FinalCTA';
-import Footer from './marketing/Footer';
 
 export default function MarketingHome() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
   // Ensure the page loads scroll at the top
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,122 +31,127 @@ export default function MarketingHome() {
   return (
     <div className="min-h-screen bg-[#fafbfe] text-slate-800 font-sans antialiased overflow-x-hidden selection:bg-blue-500/25 selection:text-blue-900">
       
-      {/* Sticky Header Nav with Back to Gateway Trigger */}
-      <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 py-4 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.02)] select-none">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img src="/images/MARKETING/logo.png" alt="MyClinicBoost Logo" className="h-10 w-auto" />
-          </div>
-          
-          {/* Navigation Links (Center) */}
-          <nav className="hidden lg:flex items-center gap-8 font-sans text-sm font-semibold text-slate-700">
-            <a
-              href="#packages"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('packages')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="hover:text-blue-600 transition-colors"
-            >
-              Services
-            </a>
-            <a
-              href="#transformation"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('transformation')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="hover:text-blue-650 transition-colors"
-            >
-              How It Works
-            </a>
-            <a
-              href="#results"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('results')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="hover:text-blue-600 transition-colors"
-            >
-              Results
-            </a>
-            <a
-              href="#about"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="hover:text-blue-600 transition-colors"
-            >
-              About
-            </a>
-            <a
-              href="#faq"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="hover:text-blue-600 transition-colors"
-            >
-              FAQ
-            </a>
-            <a
-              href="#audit-form"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('audit-form')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="hover:text-blue-600 transition-colors"
-            >
-              Contact
-            </a>
-          </nav>
-          
-          {/* Action Area (Right) */}
-          <div className="flex items-center gap-5 sm:gap-6 font-sans text-sm font-semibold text-slate-800">
-            <a
-              href="tel:+919025481909"
-              className="flex items-center gap-2 text-slate-700 hover:text-blue-600 transition-colors whitespace-nowrap"
-            >
-              <Phone className="w-4 h-4 text-blue-600 stroke-[2.5]" />
-              <span className="hidden sm:inline">+91 90254 81909</span>
-            </a>
-            <a
-              href="#audit-form"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById('audit-form')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="px-5 py-2.5 bg-[#0B4F9C] hover:bg-[#093e7a] text-white rounded-full font-bold text-xs sm:text-sm tracking-wide transition-all cursor-pointer shadow-md shadow-blue-900/10 text-center"
-            >
-              Book Free Strategy Call
-            </a>
-          </div>
+      {/* Floating Navigation Pill */}
+      <div className="fixed top-6 right-6 z-50 flex items-center bg-slate-950/80 backdrop-blur-md border border-slate-800 rounded-full py-1.5 pl-4 pr-1.5 shadow-2xl">
+        <div className="flex items-center gap-2 text-white text-xs font-semibold mr-4">
+          <span className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>
+          Navigate
         </div>
-      </header>
+        <button
+          onClick={() => setIsDrawerOpen(true)}
+          className="px-4 py-2 bg-white hover:bg-slate-100 text-slate-950 text-xs font-bold rounded-full transition-all flex items-center gap-1 cursor-pointer"
+        >
+          Open Index &rarr;
+        </button>
+      </div>
 
-      {/* Main layout flow of 16 modular sections */}
-      <main className="pt-16">
-        <Hero />
+      {/* Index Sidebar Drawer Panel */}
+      <AnimatePresence>
+        {isDrawerOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.6 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsDrawerOpen(false)}
+              className="fixed inset-0 bg-black z-50"
+            />
+            
+            {/* Drawer */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed right-0 top-0 bottom-0 w-full sm:w-[400px] bg-black text-white z-50 p-8 flex flex-col justify-between shadow-2xl"
+            >
+              {/* Header */}
+              <div className="flex justify-between items-center">
+                <span className="text-[10px] uppercase tracking-widest text-slate-500 font-bold">
+                  Tired of scrolling?
+                </span>
+                <button
+                  onClick={() => setIsDrawerOpen(false)}
+                  className="p-2 text-slate-400 hover:text-white transition-colors cursor-pointer"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+
+              {/* Navigation Links */}
+              <nav className="flex flex-col gap-8 my-auto">
+                {[
+                  { num: '01', name: 'The Premise', target: 'hero' },
+                  { num: '02', name: 'Why Clinics Fail', target: 'why-fail' },
+                  { num: '03', name: 'Our Packages', target: 'packages' },
+                  { num: '04', name: 'Results & Proof', target: 'results' },
+                  { num: '05', name: 'Growth Audit', target: 'audit-form' },
+                  { num: '06', name: 'Common FAQs', target: 'faq' },
+                ].map((item) => (
+                  <a
+                    key={item.num}
+                    href={`#${item.target}`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsDrawerOpen(false);
+                      document.getElementById(item.target)?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="group flex items-baseline gap-4 text-left border-b border-slate-900 pb-4"
+                  >
+                    <span className="text-xs text-slate-650 font-mono group-hover:text-blue-500 transition-colors">
+                      {item.num}
+                    </span>
+                    <span className="text-2xl font-bold tracking-tight text-slate-350 group-hover:text-white transition-colors">
+                      {item.name}
+                    </span>
+                    <span className="ml-auto text-slate-700 group-hover:text-white transition-colors">
+                      &rarr;
+                    </span>
+                  </a>
+                ))}
+              </nav>
+
+              {/* Footer */}
+              <div className="text-[10px] text-slate-650 font-medium">
+                &copy; {new Date().getFullYear()} Evolve Health Source. All rights reserved.
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
+      {/* Main layout flow */}
+      <main>
+        <div id="hero">
+          <Hero />
+        </div>
         <TrustBar />
         <SocialStats />
         <Problems />
-        <WhyFail />
+        <div id="why-fail">
+          <WhyFail />
+        </div>
         <Timeline />
         <SocialProof />
-        <PlansComparison />
+        <div id="packages">
+          <PlansComparison />
+        </div>
         <DarkHighlight />
         <Statistics />
         <CaseStudies />
-        <Testimonials />
+        <div id="results">
+          <Testimonials />
+        </div>
         <div id="audit-form">
           <GrowthAudit />
         </div>
-        <FAQSection />
+        <div id="faq">
+          <FAQSection />
+        </div>
         <FinalCTA />
       </main>
-
-      <Footer />
     </div>
   );
 }
+

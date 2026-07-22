@@ -30,33 +30,40 @@ export default function Navbar() {
       { name: 'Home', path: '/marketing/home' },
       { name: 'Services', path: '/marketing/home#services' },
       { name: 'Parent Portal', path: '/' },
-      { name: 'Contact Us', path: '/rcm/contact' },
+      { name: 'Contact Us', path: '/contact' },
     ]
     : [
-      { name: 'Home', path: '/rcm/home' },
-      { name: 'About Us', path: '/rcm/about' },
+      { name: 'Home', path: '/' },
+      {
+        name: 'About Us',
+        path: '/about',
+        dropdown: [
+          { name: 'About Evolve Medical', path: '/about' },
+          { name: 'MyClinicBoost', path: '/myclinicboot' }
+        ]
+      },
       {
         name: 'Solutions',
-        path: '/rcm/solutions',
+        path: '/solutions',
         dropdown: [
-          { name: 'Revenue Cycle Management', path: '/rcm/solutions?tab=0' },
-          { name: 'Medical Coding Services', path: '/rcm/solutions?tab=1' },
-          { name: 'Medical Billing & Claims', path: '/rcm/solutions?tab=2' },
-          { name: 'Accounts Receivable', path: '/rcm/solutions?tab=3' },
-          { name: 'Denial Prevention & Recovery', path: '/rcm/solutions?tab=4' },
+          { name: 'Revenue Cycle Management', path: '/solutions?tab=0' },
+          { name: 'Medical Coding Services', path: '/solutions?tab=1' },
+          { name: 'Medical Billing & Claims', path: '/solutions?tab=2' },
+          { name: 'Accounts Receivable', path: '/solutions?tab=3' },
+          { name: 'Denial Prevention & Recovery', path: '/solutions?tab=4' },
         ]
       },
       {
         name: 'Insights',
-        path: '/rcm/insights',
+        path: '/insights',
         dropdown: [
-          { name: 'Blogs', path: '/rcm/insights' },
-          { name: 'Industry Updates', path: '/rcm/insights?category=industry' },
-          { name: 'RCM Resources', path: '/rcm/insights?category=resources' },
+          { name: 'Blogs', path: '/insights' },
+          { name: 'Industry Updates', path: '/insights?category=industry' },
+          { name: 'RCM Resources', path: '/insights?category=resources' },
         ]
       },
-      { name: 'Careers', path: '/rcm/careers' },
-      { name: 'Contact', path: '/rcm/contact' },
+      { name: 'Careers', path: '/careers' },
+      { name: 'Contact', path: '/contact' },
     ];
 
   return (
@@ -71,7 +78,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
 
-          <Link to={isMarketing ? "/marketing/home" : "/rcm/home"} className="flex items-center gap-2.5 group relative select-none">
+          <Link to={isMarketing ? "/marketing/home" : "/"} className="flex items-center gap-2.5 group relative select-none">
             {isMarketing ? (
               <>
                 <div className="w-8 h-8 rounded-lg bg-teal-600 text-white flex items-center justify-center font-bold text-sm shadow-sm group-hover:scale-105 transition-transform duration-300">
@@ -89,7 +96,7 @@ export default function Navbar() {
                 src="/images/RCM/EvolveRCM_Logo.png"
                 alt="Evolve RCM"
                 className={cn(
-                  "h-20 sm:h-26 w-auto object-contain transition-all duration-300 -my-4 sm:-my-6",
+                  "h-32 sm:h-40 w-auto object-contain transition-all duration-300 -my-7 sm:-my-10",
                   isScrolled ? "brightness-0" : ""
                 )}
               />
@@ -169,7 +176,7 @@ export default function Navbar() {
 
           <div className="hidden md:flex items-center gap-4">
             <Link
-              to="/rcm/contact"
+              to="/contact"
               className={cn(
                 "relative group overflow-hidden px-6 py-3 rounded-full font-bold text-sm text-white transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]",
                 isMarketing
@@ -237,7 +244,7 @@ export default function Navbar() {
               ))}
               <div className="pt-4">
                 <Link
-                  to="/rcm/contact"
+                  to="/contact"
                   className="block w-full text-center bg-gradient-to-r from-primary to-secondary text-white px-5 py-3.5 rounded-full font-bold text-sm shadow-lg shadow-primary/20"
                 >
                   Schedule Consultation

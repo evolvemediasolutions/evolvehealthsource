@@ -1,6 +1,7 @@
 import Hero from '../components/home/Hero';
 import TrustSection from '../components/home/TrustSection';
 import AboutSection from '../components/home/AboutSection';
+import WhoWeHelp from '../components/home/WhoWeHelp';
 import SolutionsSection from '../components/home/SolutionsSection';
 import WorkflowSection from '../components/home/WorkflowSection';
 import SpecialtySection from '../components/home/SpecialtySection';
@@ -17,6 +18,7 @@ export default function Home() {
       <Hero />
       <TrustSection />
       <AboutSection />
+      <WhoWeHelp />
       <SolutionsSection />
       <WorkflowSection />
       <SpecialtySection />

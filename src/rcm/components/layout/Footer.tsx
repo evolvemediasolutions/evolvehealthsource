@@ -27,7 +27,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-20">
 
           <div className="lg:col-span-2">
-            <Link to={isMarketing ? "/marketing/home" : "/rcm/home"} className="flex items-center gap-3 mb-6 group select-none">
+            <Link to={isMarketing ? "/marketing/home" : "/"} className="flex items-center gap-3 mb-6 group select-none">
               {isMarketing ? (
                 <>
                   <div className="w-8 h-8 rounded-lg bg-teal-600 text-white flex items-center justify-center font-bold text-sm shadow-md">
@@ -92,10 +92,10 @@ export default function Footer() {
           <div>
             <h3 className="font-semibold text-white mb-6 uppercase tracking-wider text-xs">Company</h3>
             <ul className="space-y-4">
-              <li><Link to="/rcm/about" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">About Us</Link></li>
-              <li><Link to="/rcm/careers" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Careers</Link></li>
-              <li><Link to="/rcm/insights" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Insights</Link></li>
-              <li><Link to="/rcm/contact" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Contact</Link></li>
+              <li><Link to="/about" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">About Us</Link></li>
+              <li><Link to="/careers" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Careers</Link></li>
+              <li><Link to="/insights" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Insights</Link></li>
+              <li><Link to="/contact" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Contact</Link></li>
             </ul>
           </div>
 
@@ -111,10 +111,10 @@ export default function Footer() {
                 </>
               ) : (
                 <>
-                  <li><Link to="/rcm/solutions" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Medical Coding</Link></li>
-                  <li><Link to="/rcm/solutions" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Medical Billing</Link></li>
-                  <li><Link to="/rcm/solutions" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Accounts Receivable</Link></li>
-                  <li><Link to="/rcm/solutions" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Denial Management</Link></li>
+                  <li><Link to="/solutions" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Medical Coding</Link></li>
+                  <li><Link to="/solutions" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Medical Billing</Link></li>
+                  <li><Link to="/solutions" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Accounts Receivable</Link></li>
+                  <li><Link to="/solutions" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Denial Management</Link></li>
                 </>
               )}
             </ul>
