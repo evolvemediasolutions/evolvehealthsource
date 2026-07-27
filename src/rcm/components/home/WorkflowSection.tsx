@@ -47,7 +47,7 @@ export default function WorkflowSection() {
         </div>
 
         {/* Timeline Grid */}
-        <div className="relative max-w-5xl mx-auto">
+        <div className="relative max-w-7xl mx-auto">
           {/* Vertical background line */}
           <div className="absolute left-8 md:left-1/2 top-4 bottom-4 w-[2px] bg-slate-200 dark:bg-slate-800 -translate-x-1/2 transition-colors duration-300"></div>
           
@@ -79,7 +79,7 @@ export default function WorkflowSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="w-full md:w-[45%] pl-16 md:pl-0"
+                    className="w-full md:w-[47%] lg:w-[48%] pl-16 md:pl-0"
                   >
                     <div className="bg-white dark:bg-slate-900/50 backdrop-blur-md border border-slate-200 dark:border-slate-800 p-6 rounded-[24px] hover:border-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-black/20 group shadow-sm">
                       <div className="flex items-center gap-4 mb-4">
@@ -96,7 +96,7 @@ export default function WorkflowSection() {
                   </motion.div>
 
                   {/* Spacer for alignment */}
-                  <div className="hidden md:block w-[45%]"></div>
+                  <div className="hidden md:block w-[47%] lg:w-[48%]"></div>
                 </div>
               );
             })}

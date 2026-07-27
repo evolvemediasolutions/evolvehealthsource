@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 
 const blogs = [
   {
-    title: 'Navigating the New ICD-10 Coding Updates for 2024',
+    title: 'Navigating the New ICD-10 Coding Updates for 2026',
     category: 'Medical Coding',
     desc: 'An in-depth look at the latest changes in ICD-10 coding and how they impact your practice\'s reimbursement rates.',
-    date: 'Oct 15, 2023',
-    author: 'Sarah Jenkins',
-    slug: 'navigating-icd-10-updates-2024',
+    date: 'Jul 15, 2026',
+    author: 'Deborah Reed',
+    slug: 'navigating-icd-10-updates-2026',
     gradient: 'from-blue-600/30 to-indigo-600/30',
     badgeStyle: 'text-blue-300 bg-blue-950/80 border-blue-500/25'
   },
@@ -17,8 +17,8 @@ const blogs = [
     title: 'Strategies to Reduce Claim Denials in Multi-Specialty Clinics',
     category: 'Denial Management',
     desc: 'Discover proven workflows and technologies to significantly lower your denial rates and improve cash flow.',
-    date: 'Oct 02, 2023',
-    author: 'Dr. Michael Chen',
+    date: 'Jul 02, 2026',
+    author: 'Dr. Robert Harris',
     slug: 'strategies-reduce-claim-denials',
     gradient: 'from-purple-600/30 to-pink-600/30',
     badgeStyle: 'text-purple-300 bg-purple-950/80 border-purple-500/25'
@@ -27,8 +27,8 @@ const blogs = [
     title: 'The Role of AI in Modern Accounts Receivable Management',
     category: 'Technology',
     desc: 'How artificial intelligence and machine learning are revolutionizing the way healthcare organizations manage AR.',
-    date: 'Sep 28, 2023',
-    author: 'Elena Rodriguez',
+    date: 'Jun 28, 2026',
+    author: 'Marcus Vance',
     slug: 'ai-in-modern-ar-management',
     gradient: 'from-cyan-600/30 to-teal-600/30',
     badgeStyle: 'text-cyan-300 bg-cyan-950/80 border-cyan-500/25'

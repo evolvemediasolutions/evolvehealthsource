@@ -5,19 +5,19 @@ import { ArrowRight } from 'lucide-react';
 export default function Hero() {
   return (
     <section className="relative h-screen flex items-center bg-slate-950 overflow-hidden w-full pt-20">
-      
+
       {/* Background Image Container */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <motion.div
-          animate={{ 
+          animate={{
             scale: [1.02, 1.06, 1.02],
             x: [0, 10, 0],
             y: [0, -10, 0]
           }}
-          transition={{ 
-            repeat: Infinity, 
-            duration: 25, 
-            ease: "easeInOut" 
+          transition={{
+            repeat: Infinity,
+            duration: 25,
+            ease: "easeInOut"
           }}
           className="absolute inset-0"
         >
@@ -34,7 +34,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_40%,_rgba(2,6,23,0.95)_100%)] z-2"></div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-20 lg:py-24 text-center flex flex-col items-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full py-20 lg:py-24 text-center flex flex-col items-center">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,9 +52,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-6 text-center max-w-3xl"
+          className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-6 text-center max-w-5xl"
         >
-          Transforming Healthcare Revenue Through <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400">Intelligent RCM</span>
+          Transforming Healthcare Revenue <br className="hidden sm:inline" />Through <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400">Intelligent RCM</span>
         </motion.h1>
 
         <motion.p

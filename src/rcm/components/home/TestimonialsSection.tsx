@@ -5,19 +5,19 @@ import { useState } from 'react';
 const testimonials = [
   {
     quote: "Evolve Medical transformed our revenue cycle. We saw a 15% increase in total revenue within the first six months, and our denial rate dropped significantly. Their team is exceptionally professional.",
-    name: "Dr. Sarah Jenkins",
+    name: "Dr. Carolyn Brooks",
     title: "Chief Medical Officer",
     company: "Westside Healthcare Partners"
   },
   {
     quote: "Partnering with Evolve was the best financial decision our hospital made this year. Their technology-driven approach and transparency gave us the confidence we needed.",
-    name: "James Wilson",
+    name: "Stephen Sterling",
     title: "CFO",
     company: "Metro General Hospital"
   },
   {
     quote: "The credentialing and coding services are top-tier. They handled our complex multi-specialty billing with ease, allowing our providers to focus entirely on patient care.",
-    name: "Elena Rodriguez",
+    name: "Theresa Delgado",
     title: "Operations Director",
     company: "Summit Multi-Specialty Clinic"
   }

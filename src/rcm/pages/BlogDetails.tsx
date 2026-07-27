@@ -36,23 +36,23 @@ interface ArticleContent {
 }
 
 const blogsConfig: Record<string, ArticleContent> = {
-  'navigating-icd-10-updates-2024': {
-    title: 'Navigating the New ICD-10 Coding Updates for 2024',
+  'navigating-icd-10-updates-2026': {
+    title: 'Navigating the New ICD-10 Coding Updates for 2026',
     category: 'Medical Coding',
-    date: 'Oct 15, 2023',
-    author: 'Sarah Jenkins',
+    date: 'Jul 15, 2026',
+    author: 'Deborah Reed',
     authorTitle: 'CPC, Lead Auditor',
-    authorBio: 'Sarah Jenkins has over 14 years of auditing experience, specializing in diagnostic compliance and ICD-10 modifier validations.',
+    authorBio: 'Deborah Reed has over 14 years of auditing experience, specializing in diagnostic compliance and ICD-10 modifier validations.',
     authorImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200',
     readTime: '6 min read',
     gradient: 'from-blue-600/30 to-indigo-600/30',
     badgeStyle: 'text-blue-400 bg-blue-950/80 border-blue-500/25',
-    intro: 'Annual ICD-10 updates represent a critical compliance milestone. For fiscal year 2024, CMS has introduced over 395 diagnostic code changes, including additions, deletions, and major modifier revisions. Failing to align clinical workflows will lead to immediate claims denials and delayed payments.',
+    intro: 'Annual ICD-10 updates represent a critical compliance milestone. For fiscal year 2026, CMS has introduced over 395 diagnostic code changes, including additions, deletions, and major modifier revisions. Failing to align clinical workflows will lead to immediate claims denials and delayed payments.',
     sections: [
       {
-        heading: '1. Major Focus Areas of the 2024 Update',
+        heading: '1. Major Focus Areas of the 2026 Update',
         paragraphs: [
-          'The 2024 updates prioritize social determinants of health (SDoH), pediatric diagnostics, and complex neurological diseases. Specifically, SDoH reporting code updates (Z55-Z65) have been expanded to include more details regarding patient housing status, economic barriers, and literacy levels.',
+          'The 2026 updates prioritize social determinants of health (SDoH), pediatric diagnostics, and complex neurological diseases. Specifically, SDoH reporting code updates (Z55-Z65) have been expanded to include more details regarding patient housing status, economic barriers, and literacy levels.',
           'Additionally, neurology practices will see refined diagnostic mappings for Parkinson’s disease and dementia, requiring coders to identify specific sub-types and secondary manifestations within the documentation before choosing a code.'
         ],
         list: [
@@ -85,10 +85,10 @@ const blogsConfig: Record<string, ArticleContent> = {
   'strategies-reduce-claim-denials': {
     title: 'Strategies to Reduce Claim Denials in Multi-Specialty Clinics',
     category: 'Denial Management',
-    date: 'Oct 02, 2023',
-    author: 'Dr. Michael Chen',
+    date: 'Jul 02, 2026',
+    author: 'Dr. Robert Harris',
     authorTitle: 'MD, MBA, CMO',
-    authorBio: 'Dr. Chen bridges clinical compliance with operations at Evolve, helping practices implement clean billing pipelines.',
+    authorBio: 'Dr. Harris bridges clinical compliance with operations at Evolve, helping practices implement clean billing pipelines.',
     authorImage: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=200&h=200',
     readTime: '8 min read',
     gradient: 'from-purple-600/30 to-pink-600/30',
@@ -131,10 +131,10 @@ const blogsConfig: Record<string, ArticleContent> = {
   'ai-in-modern-ar-management': {
     title: 'The Role of AI in Modern Accounts Receivable Management',
     category: 'Technology',
-    date: 'Sep 28, 2023',
-    author: 'Elena Rodriguez',
+    date: 'Jun 28, 2026',
+    author: 'Marcus Vance',
     authorTitle: 'Director of Integration',
-    authorBio: 'Elena specializes in designing predictive analytics models and smart task-queuing workflows for billing networks.',
+    authorBio: 'Marcus specializes in designing predictive analytics models and smart task-queuing workflows for billing networks.',
     authorImage: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=200&h=200',
     readTime: '7 min read',
     gradient: 'from-cyan-600/30 to-teal-600/30',

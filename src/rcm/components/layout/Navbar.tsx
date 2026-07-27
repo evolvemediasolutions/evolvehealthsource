@@ -27,20 +27,14 @@ export default function Navbar() {
 
   const navLinks = isMarketing
     ? [
-      { name: 'Home', path: '/marketing/home' },
       { name: 'Services', path: '/marketing/home#services' },
       { name: 'Parent Portal', path: '/' },
       { name: 'Contact Us', path: '/contact' },
     ]
     : [
-      { name: 'Home', path: '/' },
       {
         name: 'About Us',
-        path: '/about',
-        dropdown: [
-          { name: 'About Evolve Medical', path: '/about' },
-          { name: 'MyClinicBoost', path: '/myclinicboot' }
-        ]
+        path: '/about'
       },
       {
         name: 'Solutions',
@@ -51,6 +45,13 @@ export default function Navbar() {
           { name: 'Medical Billing & Claims', path: '/solutions?tab=2' },
           { name: 'Accounts Receivable', path: '/solutions?tab=3' },
           { name: 'Denial Prevention & Recovery', path: '/solutions?tab=4' },
+        ]
+      },
+      {
+        name: 'Services',
+        path: '/services',
+        dropdown: [
+          { name: 'My Clinic Boost', path: '/myclinicboost' }
         ]
       },
       {
@@ -96,7 +97,7 @@ export default function Navbar() {
                 src="/images/RCM/EvolveRCM_Logo.png"
                 alt="Evolve RCM"
                 className={cn(
-                  "h-32 sm:h-40 w-auto object-contain transition-all duration-300 -my-7 sm:-my-10",
+                  "h-36 sm:h-48 w-auto object-contain transition-all duration-300 -my-8 sm:-my-12",
                   isScrolled ? "brightness-0" : ""
                 )}
               />
