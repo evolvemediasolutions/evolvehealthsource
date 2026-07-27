@@ -1,10 +1,15 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import pool, { initializeDatabase } from './db.js';
 import { sendContactNotification } from './mailer.js';
 
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = process.env.PORT || 3001;
@@ -64,6 +69,14 @@ app.post('/api/contact', async (req, res) => {
     console.error('Error handling contact submission:', error);
     return res.status(500).json({ error: 'An internal server error occurred while processing your request.' });
   }
+});
+
+// Serve static files from the Vite frontend build folder (dist)
+app.use(express.static(path.join(__dirname, '../dist')));
+
+// Fallback all SPA routes to index.html
+app.get('/*splat', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
 // Start the server
