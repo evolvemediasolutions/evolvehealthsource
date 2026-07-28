@@ -71,15 +71,21 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// Serve static files from the Vite frontend build folder (dist)
-app.use(express.static(path.join(__dirname, '../dist')));
+// Serve static files from the Vite frontend build folder (dist) - only when not on Vercel
+if (!process.env.VERCEL) {
+  app.use(express.static(path.join(__dirname, '../dist')));
 
-// Fallback all SPA routes to index.html
-app.get('/*splat', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist/index.html'));
-});
+  // Fallback all SPA routes to index.html
+  app.get('/*splat', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist/index.html'));
+  });
+}
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Backend server is running on port ${port}`);
-});
+// Start the server - only when not on Vercel
+if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
+  app.listen(port, () => {
+    console.log(`Backend server is running on port ${port}`);
+  });
+}
+
+export default app;
