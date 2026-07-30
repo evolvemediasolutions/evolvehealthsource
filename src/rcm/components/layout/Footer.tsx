@@ -39,9 +39,9 @@ export default function Footer() {
                 </>
               ) : (
                 <img
-                  src="/images/RCM/EvolveRCM_Logo.png"
+                  src="/LOGO1.png"
                   alt="Evolve RCM"
-                  className="h-28 sm:h-36 max-w-none w-auto object-contain -ml-8 -my-6"
+                  className="h-20 sm:h-26 w-auto object-contain"
                 />
               )}
             </Link>

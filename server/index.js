@@ -34,35 +34,58 @@ app.post('/api/contact', async (req, res) => {
     return res.status(400).json({ error: 'All fields (firstName, lastName, email, message) are required.' });
   }
 
+  let databaseSaved = false;
+  let emailSent = false;
+  let errorDetails = {};
+
   try {
     // 1. Insert into Neon DB database
-    let databaseSaved = false;
     if (process.env.DATABASE_URL) {
-      const queryText = 'INSERT INTO contact_submissions (first_name, last_name, email, message) VALUES ($1, $2, $3, $4) RETURNING id';
-      const values = [firstName, lastName, email, message];
-      const result = await pool.query(queryText, values);
-      console.log(`Saved submission to database with ID: ${result.rows[0].id}`);
-      databaseSaved = true;
+      try {
+        const queryText = 'INSERT INTO contact_submissions (first_name, last_name, email, message) VALUES ($1, $2, $3, $4) RETURNING id';
+        const values = [firstName, lastName, email, message];
+        const result = await pool.query(queryText, values);
+        console.log(`Saved submission to database with ID: ${result.rows[0].id}`);
+        databaseSaved = true;
+      } catch (dbError) {
+        console.error('Database insertion failed:', dbError);
+        errorDetails.database = dbError.message || dbError;
+      }
     } else {
       console.warn("Skipped database save: DATABASE_URL not set.");
     }
 
     // 2. Send email via MailerSend
-    let emailSent = false;
     if (process.env.MAILERSEND_API_KEY) {
-      const emailResult = await sendContactNotification({ firstName, lastName, email, message });
-      emailSent = emailResult.success;
+      try {
+        const emailResult = await sendContactNotification({ firstName, lastName, email, message });
+        emailSent = emailResult.success;
+        if (!emailResult.success) {
+          errorDetails.email = emailResult.error;
+        }
+      } catch (emailError) {
+        console.error('MailerSend operation failed:', emailError);
+        errorDetails.email = emailError.message || emailError;
+      }
     } else {
       console.warn("Skipped email notification: MAILERSEND_API_KEY not set.");
     }
 
-    // 3. Return success
+    // 3. Return response based on outcomes
+    if (!databaseSaved && !emailSent) {
+      return res.status(500).json({
+        error: 'Failed to process contact submission.',
+        details: errorDetails
+      });
+    }
+
     return res.status(201).json({
       success: true,
       message: 'Contact submission received successfully.',
       details: {
         databaseSaved,
         emailSent,
+        errors: Object.keys(errorDetails).length > 0 ? errorDetails : undefined
       }
     });
   } catch (error) {

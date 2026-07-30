@@ -72,8 +72,8 @@ export default function Navbar() {
       className={cn(
         'fixed top-0 w-full z-50 transition-all duration-500 border-b',
         isScrolled || isMarketing
-          ? 'bg-white/90 backdrop-blur-lg border-slate-200 py-1.5 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)]'
-          : 'bg-transparent border-transparent py-3'
+          ? 'bg-white/90 backdrop-blur-lg border-slate-200 py-3 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.05)]'
+          : 'bg-transparent border-transparent py-5'
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,12 +94,9 @@ export default function Navbar() {
               </>
             ) : (
               <img
-                src="/images/RCM/EvolveRCM_Logo.png"
+                src="/LOGO1.png?v=1"
                 alt="Evolve RCM"
-                className={cn(
-                  "h-36 sm:h-48 w-auto object-contain transition-all duration-300 -my-8 sm:-my-12",
-                  isScrolled ? "" : "brightness-0 invert"
-                )}
+                className="h-20 sm:h-24 w-auto object-contain transition-all duration-300 relative top-2 -my-2"
               />
             )}
           </Link>
