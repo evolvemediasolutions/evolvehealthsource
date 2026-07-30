@@ -98,7 +98,7 @@ export default function Navbar() {
                 alt="Evolve RCM"
                 className={cn(
                   "h-36 sm:h-48 w-auto object-contain transition-all duration-300 -my-8 sm:-my-12",
-                  isScrolled ? "brightness-0" : ""
+                  isScrolled ? "" : "brightness-0 invert"
                 )}
               />
             )}
