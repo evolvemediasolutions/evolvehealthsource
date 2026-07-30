@@ -54,7 +54,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-6 text-center max-w-5xl"
         >
-          Transforming Healthcare Revenue <br className="hidden sm:inline" />Through <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400">Intelligent RCM</span>
+          Transforming Healthcare Revenue <br className="hidden sm:inline" />Through <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#2563eb] via-[#06b6d4] to-[#10b981]">Intelligent RCM</span>
         </motion.h1>
 
         <motion.p
@@ -74,7 +74,7 @@ export default function Hero() {
         >
           <Link
             to="/contact"
-            className="group relative inline-flex justify-center items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-teal-500 text-white font-bold transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] shadow-lg shadow-teal-500/20 hover:shadow-teal-500/40 cursor-pointer"
+            className="group relative inline-flex justify-center items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#2563eb] to-[#10b981] text-white font-bold transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] shadow-lg shadow-[#10b981]/20 hover:shadow-[#10b981]/40 cursor-pointer"
           >
             <span>Schedule Consultation</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

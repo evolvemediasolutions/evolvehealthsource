@@ -65,7 +65,7 @@ export default function Footer() {
                 />
                 <button
                   type="submit"
-                  className="absolute right-1.5 bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white rounded-full p-2 transition-all"
+                  className="absolute right-1.5 bg-gradient-to-r from-[#2563eb] to-[#10b981] hover:opacity-90 text-white rounded-full p-2 transition-all"
                   aria-label="Subscribe"
                 >
                   <ArrowRight className="w-4 h-4" />

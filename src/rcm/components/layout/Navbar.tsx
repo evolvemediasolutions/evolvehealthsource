@@ -138,7 +138,7 @@ export default function Navbar() {
                     {isActive && (
                       <motion.span
                         layoutId="activeNavIndicator"
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary to-secondary rounded-full"
+                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#2563eb] to-[#10b981] rounded-full"
                         transition={{ type: "spring", stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -182,7 +182,7 @@ export default function Navbar() {
                 "relative group overflow-hidden px-6 py-3 rounded-full font-bold text-sm text-white transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]",
                 isMarketing
                   ? "bg-gradient-to-r from-teal-600 to-emerald-600 shadow-lg shadow-teal-600/25 hover:shadow-teal-600/45"
-                  : "bg-gradient-to-r from-primary to-secondary shadow-lg shadow-primary/25 hover:shadow-primary/45"
+                  : "bg-gradient-to-r from-[#2563eb] to-[#10b981] shadow-lg shadow-[#10b981]/25 hover:shadow-[#10b981]/45"
               )}
             >
               <span className="relative z-10">{isMarketing ? "Schedule Demo" : "Schedule Consultation"}</span>
@@ -246,7 +246,7 @@ export default function Navbar() {
               <div className="pt-4">
                 <Link
                   to="/contact"
-                  className="block w-full text-center bg-gradient-to-r from-primary to-secondary text-white px-5 py-3.5 rounded-full font-bold text-sm shadow-lg shadow-primary/20"
+                  className="block w-full text-center bg-gradient-to-r from-[#2563eb] to-[#10b981] text-white px-5 py-3.5 rounded-full font-bold text-sm shadow-lg shadow-[#10b981]/20"
                 >
                   Schedule Consultation
                 </Link>

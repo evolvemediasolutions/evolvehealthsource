@@ -72,7 +72,7 @@ export default function WhoWeHelp() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight mb-6"
           >
-            Revenue Cycle Excellence, Tailored to <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400">Your Facility</span>
+            Revenue Cycle Excellence, Tailored to <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#2563eb] via-[#06b6d4] to-[#10b981]">Your Facility</span>
           </motion.h2>
 
           <motion.p
@@ -108,7 +108,7 @@ export default function WhoWeHelp() {
                 </h3>
                 
                 {/* Subtle horizontal gradient separator line */}
-                <div className="h-[2px] w-12 bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400 rounded-full mb-6 group-hover:w-20 transition-all duration-300"></div>
+                <div className="h-[2px] w-12 bg-gradient-to-r from-[#2563eb] via-[#06b6d4] to-[#10b981] rounded-full mb-6 group-hover:w-20 transition-all duration-300"></div>
 
                 <p className="text-sm text-slate-400 leading-relaxed font-light font-rcm-sans">
                   {cat.description}

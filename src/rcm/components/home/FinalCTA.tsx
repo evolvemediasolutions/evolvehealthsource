@@ -42,7 +42,7 @@ export default function FinalCTA() {
         >
           <Link 
             to="/rcm/contact"
-            className="w-full sm:w-auto inline-flex justify-center items-center gap-3.5 px-8 py-4 rounded-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white font-extrabold shadow-xl shadow-primary/20 hover:shadow-primary/30 transition-all hover:scale-[1.03]"
+            className="w-full sm:w-auto inline-flex justify-center items-center gap-3.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#2563eb] to-[#10b981] text-white font-extrabold shadow-xl shadow-[#10b981]/20 hover:shadow-[#10b981]/30 transition-all hover:scale-[1.03]"
           >
             <span>Get Started Today</span>
             <ArrowRight className="w-4 h-4" />

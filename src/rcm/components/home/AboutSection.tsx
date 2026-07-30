@@ -3,10 +3,10 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 export default function AboutSection() {
   const stats = [
-    { value: '25+', label: 'Combined Experience' },
-    { value: '500K+', label: 'Claims Processed' },
-    { value: '99.1%', label: 'First-Pass Yield' },
-    { value: '96.8%', label: 'Average Collection Rate' },
+    { value: '25+', label: 'Years of experience' },
+    { value: '98%', label: 'Coding Accuracy' },
+    { value: '95%', label: 'First Pass Acceptance' },
+    { value: '24 hr', label: 'Claims Submission' },
   ];
 
   return (
@@ -92,7 +92,7 @@ export default function AboutSection() {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               className="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 rounded-2xl p-6 text-center hover:border-primary/30 transition-all duration-300 cursor-default group shadow-sm hover:shadow-lg"
             >
-              <div className="text-3xl md:text-4xl font-black text-primary dark:text-white mb-2 group-hover:scale-105 transition-transform duration-300 bg-clip-text text-transparent bg-gradient-to-r from-primary-600 to-secondary-500 dark:from-primary-400 dark:to-secondary-400">
+              <div className="text-3xl md:text-4xl font-black text-primary dark:text-white mb-2 group-hover:scale-105 transition-transform duration-300 bg-clip-text text-transparent bg-gradient-to-r from-[#2563eb] via-[#06b6d4] to-[#10b981]">
                 {stat.value}
               </div>
               <div className="text-[10px] font-bold text-slate-500 dark:text-slate-500 uppercase tracking-widest leading-relaxed">

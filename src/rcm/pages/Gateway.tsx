@@ -250,7 +250,7 @@ export default function Gateway() {
             style={{ contentVisibility: 'auto' }}
           >
             {/* Top gradient accent line */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2563eb] to-[#10b981] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
             <div>
               {/* Illustration container */}
@@ -292,7 +292,7 @@ export default function Gateway() {
             {/* CTA Button */}
             <div className="mt-auto">
               <button
-                className="w-full relative overflow-hidden group/btn inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-slate-900 group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-teal-600 shadow-md group-hover:shadow-lg group-hover:shadow-blue-500/25 transition-all duration-300"
+                className="w-full relative overflow-hidden group/btn inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#2563eb] group-hover:to-[#10b981] shadow-md group-hover:shadow-lg group-hover:shadow-[#2563eb]/25 transition-all duration-300"
                 onClick={(e) => {
                   e.stopPropagation();
                   handleMarketingClick();
@@ -314,7 +314,7 @@ export default function Gateway() {
             style={{ contentVisibility: 'auto' }}
           >
             {/* Top gradient accent line */}
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-indigo-500 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#2563eb] to-[#10b981] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
             <div>
               {/* Illustration container */}
@@ -356,7 +356,7 @@ export default function Gateway() {
             {/* CTA Button */}
             <div className="mt-auto">
               <button
-                className="w-full relative overflow-hidden group/btn inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-slate-900 group-hover:bg-gradient-to-r group-hover:from-indigo-600 group-hover:to-blue-600 shadow-md group-hover:shadow-lg group-hover:shadow-indigo-500/25 transition-all duration-300"
+                className="w-full relative overflow-hidden group/btn inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm text-white bg-slate-900 group-hover:bg-gradient-to-r group-hover:from-[#2563eb] group-hover:to-[#10b981] shadow-md group-hover:shadow-lg group-hover:shadow-[#2563eb]/25 transition-all duration-300"
                 onClick={(e) => {
                   e.stopPropagation();
                   handleRcmClick();

@@ -130,7 +130,7 @@ export default function WhyChooseUsSection() {
                     <span className="text-accent font-bold">28 Days</span>
                   </div>
                   <div className="h-6 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden flex items-center">
-                    <div className="h-full bg-gradient-to-r from-primary to-secondary w-[66%] rounded-full text-[10px] font-black text-white flex items-center pl-3">33% Faster collections</div>
+                    <div className="h-full bg-gradient-to-r from-[#2563eb] to-[#10b981] w-[66%] rounded-full text-[10px] font-black text-white flex items-center pl-3">33% Faster collections</div>
                   </div>
                 </div>
               </div>

@@ -83,7 +83,7 @@ export default function WorkflowSection() {
                   >
                     <div className="bg-white dark:bg-slate-900/50 backdrop-blur-md border border-slate-200 dark:border-slate-800 p-6 rounded-[24px] hover:border-primary/20 transition-all duration-300 hover:shadow-lg hover:shadow-black/20 group shadow-sm">
                       <div className="flex items-center gap-4 mb-4">
-                        <div className="w-12 h-12 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-center text-slate-500 dark:text-slate-400 group-hover:bg-gradient-to-r group-hover:from-primary group-hover:to-secondary group-hover:text-white transition-all shadow-inner shrink-0">
+                        <div className="w-12 h-12 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-800 rounded-xl flex items-center justify-center text-slate-500 dark:text-slate-400 group-hover:bg-gradient-to-r group-hover:from-[#2563eb] group-hover:to-[#10b981] group-hover:text-white transition-all shadow-inner shrink-0">
                           <step.icon className="w-5 h-5" />
                         </div>
                         <div>
