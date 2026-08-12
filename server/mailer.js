@@ -27,8 +27,8 @@ export async function sendContactNotification({ firstName, lastName, email, mess
     const recipients = toEmail 
       ? [new Recipient(toEmail, "Evolve Health Source Admin")]
       : [
-          new Recipient("rorygray@evolveb2bsolutions.com", "Rory Gray"),
-          new Recipient("connect@evolveb2bsolutions.com", "Evolve B2B Support")
+          new Recipient("rory@evolvehealthsource.com", "Rory Gray"),
+          new Recipient("connect@evolvehealthsource.com", "Evolve Support")
         ];
     
     const htmlContent = `

@@ -138,11 +138,11 @@ export default function Footer() {
                     "hello@myclinicboost.com"
                   ) : (
                     <>
-                      <a href="mailto:rorygray@evolveb2bsolutions.com" className="hover:text-white transition-colors">
-                        rorygray@evolveb2bsolutions.com
+                      <a href="mailto:rory@evolvehealthsource.com" className="hover:text-white transition-colors">
+                        rory@evolvehealthsource.com
                       </a>
-                      <a href="mailto:connect@evolveb2bsolutions.com" className="hover:text-white transition-colors">
-                        connect@evolveb2bsolutions.com
+                      <a href="mailto:connect@evolvehealthsource.com" className="hover:text-white transition-colors">
+                        connect@evolvehealthsource.com
                       </a>
                     </>
                   )}

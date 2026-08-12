@@ -79,11 +79,11 @@ export default function Contact() {
                 <div>
                   <div className="text-sm font-medium text-gray-500">Email</div>
                   <div className="flex flex-col gap-1 font-semibold text-gray-900">
-                    <a href="mailto:rorygray@evolveb2bsolutions.com" className="hover:text-primary-600 transition-colors">
-                      rorygray@evolveb2bsolutions.com
+                    <a href="mailto:rory@evolvehealthsource.com" className="hover:text-primary-600 transition-colors">
+                      rory@evolvehealthsource.com
                     </a>
-                    <a href="mailto:connect@evolveb2bsolutions.com" className="hover:text-primary-600 transition-colors">
-                      connect@evolveb2bsolutions.com
+                    <a href="mailto:connect@evolvehealthsource.com" className="hover:text-primary-600 transition-colors">
+                      connect@evolvehealthsource.com
                     </a>
                   </div>
                 </div>

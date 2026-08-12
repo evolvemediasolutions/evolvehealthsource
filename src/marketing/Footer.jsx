@@ -136,11 +136,11 @@ export default function Footer() {
                  <li className="flex items-start gap-3">
                   <Mail className="w-4 h-4 text-slate-500 flex-shrink-0 mt-0.5" />
                   <div className="flex flex-col gap-1">
-                    <a href="mailto:rorygray@evolveb2bsolutions.com" className="hover:text-white transition-colors">
-                      rorygray@evolveb2bsolutions.com
+                    <a href="mailto:rory@evolvehealthsource.com" className="hover:text-white transition-colors">
+                      rory@evolvehealthsource.com
                     </a>
-                    <a href="mailto:connect@evolveb2bsolutions.com" className="hover:text-white transition-colors">
-                      connect@evolveb2bsolutions.com
+                    <a href="mailto:connect@evolvehealthsource.com" className="hover:text-white transition-colors">
+                      connect@evolvehealthsource.com
                     </a>
                   </div>
                 </li>

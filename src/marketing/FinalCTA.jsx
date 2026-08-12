@@ -40,8 +40,8 @@ export default function FinalCTA() {
       iconBg: 'bg-[#E8F0FE]',
       iconColor: 'text-[#1A73E8]',
       title: 'Email',
-      value: 'rorygray@evolveb2bsolutions.com',
-      href: 'mailto:rorygray@evolveb2bsolutions.com',
+      value: 'rory@evolvehealthsource.com',
+      href: 'mailto:rory@evolvehealthsource.com',
       isLink: true
     },
     {
@@ -49,8 +49,8 @@ export default function FinalCTA() {
       iconBg: 'bg-[#E8F0FE]',
       iconColor: 'text-[#1A73E8]',
       title: 'Email',
-      value: 'connect@evolveb2bsolutions.com',
-      href: 'mailto:connect@evolveb2bsolutions.com',
+      value: 'connect@evolvehealthsource.com',
+      href: 'mailto:connect@evolvehealthsource.com',
       isLink: true
     },
     {
