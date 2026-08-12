@@ -133,11 +133,16 @@ export default function Footer() {
                     Chat on WhatsApp
                   </a>
                 </li>
-                <li className="flex items-center gap-3">
-                  <Mail className="w-4 h-4 text-slate-500 flex-shrink-0" />
-                  <a href="mailto:chitra@myclinicboost.com" className="hover:text-white transition-colors">
-                    chitra@myclinicboost.com
-                  </a>
+                 <li className="flex items-start gap-3">
+                  <Mail className="w-4 h-4 text-slate-500 flex-shrink-0 mt-0.5" />
+                  <div className="flex flex-col gap-1">
+                    <a href="mailto:rorygray@evolveb2bsolutions.com" className="hover:text-white transition-colors">
+                      rorygray@evolveb2bsolutions.com
+                    </a>
+                    <a href="mailto:connect@evolveb2bsolutions.com" className="hover:text-white transition-colors">
+                      connect@evolveb2bsolutions.com
+                    </a>
+                  </div>
                 </li>
                 <li className="flex items-center gap-3">
                   <MapPin className="w-4 h-4 text-slate-500 flex-shrink-0 animate-pulse" />

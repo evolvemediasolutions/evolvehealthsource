@@ -18,13 +18,18 @@ export async function sendContactNotification({ firstName, lastName, email, mess
   }
 
   const fromEmail = process.env.MAILERSEND_FROM_EMAIL || 'MS_XXXXXX@trial-XXXXXX.mlsender.net';
-  const toEmail = process.env.MAILERSEND_TO_EMAIL || 'chitra@evolvehealthsource.com';
+  const toEmail = process.env.MAILERSEND_TO_EMAIL;
 
   try {
-    console.log(`Sending email notification from ${fromEmail} to ${toEmail}...`);
+    console.log(`Sending email notification from ${fromEmail}...`);
     
     const sentFrom = new Sender(fromEmail, "Evolve Health Source");
-    const recipients = [new Recipient(toEmail, "Evolve Health Source Admin")];
+    const recipients = toEmail 
+      ? [new Recipient(toEmail, "Evolve Health Source Admin")]
+      : [
+          new Recipient("rorygray@evolveb2bsolutions.com", "Rory Gray"),
+          new Recipient("connect@evolveb2bsolutions.com", "Evolve B2B Support")
+        ];
     
     const htmlContent = `
       <h2>New Contact Form Submission</h2>

@@ -131,11 +131,22 @@ export default function Footer() {
                 <Phone className="h-5 w-5 text-secondary shrink-0" />
                 <span className="text-slate-400 text-sm">1-800-555-0199</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-secondary shrink-0" />
-                <span className="text-slate-400 text-sm">
-                  {isMarketing ? "hello@myclinicboost.com" : "chitra@evolvehealthsource.com"}
-                </span>
+              <li className="flex items-start gap-3">
+                <Mail className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-1 text-slate-400 text-sm">
+                  {isMarketing ? (
+                    "hello@myclinicboost.com"
+                  ) : (
+                    <>
+                      <a href="mailto:rorygray@evolveb2bsolutions.com" className="hover:text-white transition-colors">
+                        rorygray@evolveb2bsolutions.com
+                      </a>
+                      <a href="mailto:connect@evolveb2bsolutions.com" className="hover:text-white transition-colors">
+                        connect@evolveb2bsolutions.com
+                      </a>
+                    </>
+                  )}
+                </div>
               </li>
             </ul>
           </div>

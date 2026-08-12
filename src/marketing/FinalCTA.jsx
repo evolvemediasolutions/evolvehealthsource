@@ -40,8 +40,17 @@ export default function FinalCTA() {
       iconBg: 'bg-[#E8F0FE]',
       iconColor: 'text-[#1A73E8]',
       title: 'Email',
-      value: 'chitra@myclinicboost.com',
-      href: 'mailto:chitra@myclinicboost.com',
+      value: 'rorygray@evolveb2bsolutions.com',
+      href: 'mailto:rorygray@evolveb2bsolutions.com',
+      isLink: true
+    },
+    {
+      icon: Mail,
+      iconBg: 'bg-[#E8F0FE]',
+      iconColor: 'text-[#1A73E8]',
+      title: 'Email',
+      value: 'connect@evolveb2bsolutions.com',
+      href: 'mailto:connect@evolveb2bsolutions.com',
       isLink: true
     },
     {

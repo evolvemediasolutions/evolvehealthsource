@@ -72,13 +72,20 @@ export default function Contact() {
                   <div className="font-semibold text-gray-900">1-800-555-0199</div>
                 </div>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary-50 text-primary-600 flex items-center justify-center">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary-50 text-primary-600 flex items-center justify-center shrink-0">
                   <Mail className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="text-sm font-medium text-gray-500">Email</div>
-                  <div className="font-semibold text-gray-900">chitra@evolvehealthsource.com</div>
+                  <div className="flex flex-col gap-1 font-semibold text-gray-900">
+                    <a href="mailto:rorygray@evolveb2bsolutions.com" className="hover:text-primary-600 transition-colors">
+                      rorygray@evolveb2bsolutions.com
+                    </a>
+                    <a href="mailto:connect@evolveb2bsolutions.com" className="hover:text-primary-600 transition-colors">
+                      connect@evolveb2bsolutions.com
+                    </a>
+                  </div>
                 </div>
               </div>
               <div className="flex items-center gap-4">
