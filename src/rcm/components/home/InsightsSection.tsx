@@ -50,7 +50,7 @@ export default function InsightsSection() {
             </h2>
           </div>
           <div>
-            <Link to="/rcm/insights" className="inline-flex items-center gap-2 text-[#0D9488] hover:text-teal-300 font-bold transition-colors group">
+            <Link to="/insights" className="inline-flex items-center gap-2 text-[#0D9488] hover:text-teal-300 font-bold transition-colors group">
               View All Insights
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
@@ -90,7 +90,7 @@ export default function InsightsSection() {
                   </div>
 
                   <h3 className="text-xl font-bold text-white mb-3 group-hover:text-teal-300 transition-colors line-clamp-2 leading-snug">
-                    <Link to={`/rcm/insights/${blog.slug}`}>{blog.title}</Link>
+                    <Link to={`/insights/${blog.slug}`}>{blog.title}</Link>
                   </h3>
 
                   <p className="text-slate-300 text-sm leading-relaxed mb-6 line-clamp-3 font-light">
@@ -99,7 +99,7 @@ export default function InsightsSection() {
                 </div>
 
                 <div className="pt-4 border-t border-white/5">
-                  <Link to={`/rcm/insights/${blog.slug}`} className="inline-flex items-center text-[#0D9488] hover:text-teal-300 font-bold transition-colors text-sm group/btn">
+                  <Link to={`/insights/${blog.slug}`} className="inline-flex items-center text-[#0D9488] hover:text-teal-300 font-bold transition-colors text-sm group/btn">
                     Read Article
                     <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
                   </Link>

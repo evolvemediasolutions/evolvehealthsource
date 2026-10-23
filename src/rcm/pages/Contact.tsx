@@ -1,8 +1,12 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PageHeader from '../components/layout/PageHeader';
 import { Mail, Phone, MapPin, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
+import { getTrackingData, pushGenerateLeadEvent } from '../../utils/tracking';
+import SEO from '../../components/SEO';
 
 export default function Contact() { 
+  const navigate = useNavigate();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -22,25 +26,51 @@ export default function Contact() {
     setErrorMessage('');
 
     try {
+      // 1. Retrieve UTM parameters and referrer from landing URL in sessionStorage
+      const trackingData = getTrackingData();
+
+      // 2. Attach tracking data to form payload
+      const payload = {
+        firstName,
+        lastName,
+        email,
+        message,
+        ...trackingData,
+      };
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ firstName, lastName, email, message }),
+        body: JSON.stringify(payload),
       });
 
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
 
+      // Only proceed if response is 2xx
       if (!response.ok) {
         throw new Error(data.error || 'Something went wrong. Please try again.');
       }
+
+      // 3. Push the dataLayer event generate_lead only after a 2xx response
+      pushGenerateLeadEvent({
+        firstName,
+        lastName,
+        email,
+        ...trackingData,
+      });
 
       setStatus('success');
       setFirstName('');
       setLastName('');
       setEmail('');
       setMessage('');
+
+      // 4. Redirect to /contact/thank-you
+      setTimeout(() => {
+        navigate('/contact/thank-you');
+      }, 600);
     } catch (err: any) {
       console.error('Submission error:', err);
       setStatus('error');
@@ -50,6 +80,11 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEO 
+        title="Contact Us | Request an RCM Consultation | Evolve Health Source"
+        description="Get in touch with Evolve Health Source. Request a free revenue cycle audit, billing performance assessment, or specialty coding consultation."
+        canonical="/contact"
+      />
       <PageHeader 
         title="Contact Us" 
         subtitle="Get in touch with our team to discuss how we can optimize your revenue cycle."
@@ -152,7 +187,7 @@ export default function Contact() {
               {status === 'success' && (
                 <div className="p-4 rounded-lg bg-green-50 text-green-800 border border-green-200 flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0" />
-                  <div className="text-sm font-medium">Thank you! Your message has been sent successfully.</div>
+                  <div className="text-sm font-medium">Thank you! Your message has been sent successfully. Redirecting...</div>
                 </div>
               )}
 

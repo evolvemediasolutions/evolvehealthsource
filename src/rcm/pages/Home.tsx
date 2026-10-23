@@ -11,10 +11,16 @@ import TestimonialsSection from '../components/home/TestimonialsSection';
 import FaqSection from '../components/home/FaqSection';
 import CareersCTA from '../components/home/CareersCTA';
 import FinalCTA from '../components/home/FinalCTA';
+import SEO from '../../components/SEO';
 
 export default function Home() {
   return (
     <div className="relative bg-slate-950 overflow-hidden">
+      <SEO 
+        title="Evolve Health Source | Healthcare Revenue Cycle Management & Billing"
+        description="Maximize clinical revenue and eliminate claims denials with Evolve Health Source. Delivering end-to-end medical billing, certified medical coding, and clean-claim automation."
+        canonical="/"
+      />
       <Hero />
       <TrustSection />
       <AboutSection />

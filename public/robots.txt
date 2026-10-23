@@ -1,0 +1,8 @@
+# robots.txt for https://evolvehealthsource.com/
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /contact/thank-you
+Disallow: /thank-you
+
+Sitemap: https://evolvehealthsource.com/sitemap.xml

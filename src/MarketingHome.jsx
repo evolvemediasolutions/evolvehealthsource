@@ -19,6 +19,7 @@ import Testimonials from './marketing/Testimonials';
 import GrowthAudit from './marketing/GrowthAudit';
 import FAQSection from './marketing/FAQSection';
 import FinalCTA from './marketing/FinalCTA';
+import SEO from './components/SEO';
 
 export default function MarketingHome() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -30,6 +31,11 @@ export default function MarketingHome() {
 
   return (
     <div className="min-h-screen bg-[#fafbfe] text-slate-800 font-sans antialiased overflow-x-hidden selection:bg-blue-500/25 selection:text-blue-900">
+      <SEO 
+        title="Healthcare Marketing & Practice Growth | MyClinicBoost by Evolve"
+        description="High-ROI healthcare marketing for private medical practices. Bespoke medical websites, healthcare local SEO dominance, patient trust funnels, and verified physician authority campaigns."
+        canonical="/marketing/home"
+      />
       
       {/* Floating Navigation Pill */}
       <div className="fixed top-6 right-6 z-50 flex items-center bg-slate-950/80 backdrop-blur-md border border-slate-800 rounded-full py-1.5 pl-4 pr-1.5 shadow-2xl">

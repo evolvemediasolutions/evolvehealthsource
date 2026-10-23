@@ -83,7 +83,7 @@ export default function MarketingHome() {
               
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
                 <Link
-                  to="/rcm/contact"
+                  to="/contact"
                   className="flex items-center justify-center gap-2 px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-bold rounded-full shadow-lg shadow-teal-600/20 hover:shadow-teal-600/35 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
                 >
                   <span>Book a Demo</span>
@@ -234,7 +234,7 @@ export default function MarketingHome() {
           </p>
           <div className="pt-4 flex flex-col sm:flex-row justify-center gap-4">
             <Link
-              to="/rcm/contact"
+              to="/contact"
               className="px-8 py-3.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold rounded-full transition-all duration-300 shadow-lg shadow-teal-500/15"
             >
               Get My Free Audit

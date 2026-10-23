@@ -41,14 +41,14 @@ export default function FinalCTA() {
           className="flex flex-col sm:flex-row justify-center items-center gap-4"
         >
           <Link 
-            to="/rcm/contact"
+            to="/contact"
             className="w-full sm:w-auto inline-flex justify-center items-center gap-3.5 px-8 py-4 rounded-full bg-gradient-to-r from-[#2563eb] to-[#10b981] text-white font-extrabold shadow-xl shadow-[#10b981]/20 hover:shadow-[#10b981]/30 transition-all hover:scale-[1.03]"
           >
             <span>Get Started Today</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
           <Link 
-            to="/rcm/contact"
+            to="/contact"
             className="w-full sm:w-auto inline-flex justify-center items-center gap-2.5 px-8 py-4 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-white/5 dark:hover:bg-white/10 text-slate-800 dark:text-white font-bold border border-slate-200 dark:border-white/10 transition-colors backdrop-blur-md hover:scale-[1.03]"
           >
             <CalendarDays className="w-4 h-4 text-secondary" />

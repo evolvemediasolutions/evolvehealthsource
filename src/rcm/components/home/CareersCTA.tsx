@@ -28,7 +28,7 @@ export default function CareersCTA() {
             </p>
             
             <Link 
-              to="/rcm/careers"
+              to="/careers"
               className="group relative inline-flex justify-center items-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-[#2563eb] to-[#10b981] text-white font-bold transition-all duration-300 hover:scale-[1.03] active:scale-[0.97] shadow-lg shadow-[#10b981]/20 hover:shadow-[#10b981]/40"
             >
               <span>Explore Careers</span>

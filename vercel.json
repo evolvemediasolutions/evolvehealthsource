@@ -1,12 +1,34 @@
 {
   "version": 2,
+  "redirects": [
+    {
+      "source": "/rcm",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/rcm/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/rcm/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/rcm/:path*",
+      "destination": "/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
-      "source": "/api/(.*)",
+      "source": "/api/:path*",
       "destination": "/api/index.js"
     },
     {
-      "source": "/((?!api/).*)",
+      "source": "/(about|solutions|services|insights|insights/[^/]+|careers|contact|contact/thank-you|thank-you|marketing/home|myclinicboot|myclinicboost|privacy|terms)/?",
       "destination": "/index.html"
     }
   ]

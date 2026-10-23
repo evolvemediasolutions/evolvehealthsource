@@ -126,7 +126,7 @@ export default function WhyChooseUsSection() {
                 </div>
                 <div className="space-y-1">
                   <div className="flex justify-between text-xs font-semibold text-slate-700 dark:text-slate-200">
-                    <span>Evolve Medical Solutions standard</span>
+                    <span>Evolve Health Source standard</span>
                     <span className="text-accent font-bold">28 Days</span>
                   </div>
                   <div className="h-6 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden flex items-center">

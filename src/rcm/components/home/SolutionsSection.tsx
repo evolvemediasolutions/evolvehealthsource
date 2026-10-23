@@ -123,7 +123,7 @@ export default function SolutionsSection() {
             </h2>
             <div className="flex items-center gap-3">
               <Link
-                to="/rcm/contact"
+                to="/contact"
                 className="px-6 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-bold rounded-full text-sm transition-all duration-300"
               >
                 Contact Us
@@ -237,7 +237,7 @@ export default function SolutionsSection() {
                     <div className="w-full h-px bg-slate-200 dark:bg-slate-800/80 my-6" />
 
                     <Link
-                      to="/rcm/contact"
+                      to="/contact"
                       className="inline-flex items-center text-[#0F9D8A] hover:text-[#0D8A79] font-bold text-sm lg:text-base group/cta transition-colors duration-300"
                     >
                       Request Consultation

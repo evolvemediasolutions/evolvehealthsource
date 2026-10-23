@@ -8,7 +8,7 @@ const faqs = [
     a: "RCM is the financial process utilizing medical billing software and expertise to track patient care episodes from registration and appointment scheduling to the final payment collection."
   },
   {
-    q: "How does Evolve Medical optimize first-pass clean claims rates?",
+    q: "How does Evolve Health Source optimize first-pass clean claims rates?",
     a: "We deploy advanced claim scrubbing engines programmed with thousands of payer rules, paired with hands-on review by certified coding specialists, guaranteeing clean claims on initial transmission."
   },
   {

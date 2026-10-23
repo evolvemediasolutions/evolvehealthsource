@@ -155,7 +155,7 @@ export default function Footer() {
 
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 text-sm">
-            © {currentYear} {isMarketing ? "MyClinicBoost" : "Evolve Medical Solutions"}. All rights reserved.
+            © {currentYear} {isMarketing ? "MyClinicBoost" : "Evolve Health Source"}. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link to="/privacy" className="text-slate-500 hover:text-slate-300 transition-colors text-sm">Privacy Policy</Link>

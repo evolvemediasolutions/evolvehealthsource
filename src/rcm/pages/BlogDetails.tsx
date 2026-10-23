@@ -13,6 +13,7 @@ import {
   ChevronRight,
   Send
 } from 'lucide-react';
+import SEO from '../../components/SEO';
 
 interface ArticleContent {
   title: string;
@@ -218,6 +219,13 @@ export default function BlogDetails() {
 
   return (
     <div className="min-h-screen bg-[#F8FAFC]">
+      <SEO 
+        title={`${article.title} | Evolve Health Source`}
+        description={article.intro.slice(0, 160)}
+        canonical={`/insights/${slug}`}
+        ogType="article"
+        ogImage={article.authorImage}
+      />
       {/* Article Hero Section */}
       <section className="bg-slate-950 text-white pt-36 pb-24 relative overflow-hidden">
         {/* Decorative background gradients */}
@@ -407,7 +415,7 @@ export default function BlogDetails() {
                   Discover billing bottlenecks, credentialing gaps, and diagnostic modifier leaks inside your practice.
                 </p>
                 <Link 
-                  to="/rcm/contact" 
+                  to="/contact" 
                   className="block w-full text-center py-3.5 rounded-xl bg-gradient-to-r from-teal-500 to-[#0F9D8A] text-white font-bold text-sm shadow-md shadow-teal-500/15 hover:scale-[1.02] active:scale-[0.98] transition-transform duration-300 relative z-10"
                 >
                   Schedule Free Audit
@@ -448,12 +456,12 @@ export default function BlogDetails() {
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
                     <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-teal-600 transition-colors line-clamp-2">
-                      <Link to={`/rcm/insights/${rel.slug}`}>{rel.title}</Link>
+                      <Link to={`/insights/${rel.slug}`}>{rel.title}</Link>
                     </h3>
                     <p className="text-slate-500 text-sm font-light leading-relaxed mb-4 line-clamp-2">{rel.intro}</p>
                   </div>
                   
-                  <Link to={`/rcm/insights/${rel.slug}`} className="inline-flex items-center text-teal-600 hover:text-teal-500 font-bold text-sm group/btn">
+                  <Link to={`/insights/${rel.slug}`} className="inline-flex items-center text-teal-600 hover:text-teal-500 font-bold text-sm group/btn">
                     Read Article <ArrowRight className="w-4 h-4 ml-1.5 group-hover/btn:translate-x-1 transition-transform" />
                   </Link>
                 </div>

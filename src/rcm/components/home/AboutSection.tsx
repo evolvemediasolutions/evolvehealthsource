@@ -50,7 +50,7 @@ export default function AboutSection() {
             className="lg:col-span-6"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary dark:text-primary-300 text-sm font-semibold mb-6">
-              About Evolve Medical
+              About Evolve Health Source
             </div>
             
             <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight">

@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 const testimonials = [
   {
-    quote: "Evolve Medical transformed our revenue cycle. We saw a 15% increase in total revenue within the first six months, and our denial rate dropped significantly. Their team is exceptionally professional.",
+    quote: "Evolve Health Source transformed our revenue cycle. We saw a 15% increase in total revenue within the first six months, and our denial rate dropped significantly. Their team is exceptionally professional.",
     name: "Dr. Carolyn Brooks",
     title: "Chief Medical Officer",
     company: "Westside Healthcare Partners"

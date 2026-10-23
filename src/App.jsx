@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Outlet, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Outlet, useLocation, Navigate, useParams } from 'react-router-dom';
 import Gateway from './Gateway';
 import MarketingHome from './MarketingHome';
 
@@ -13,13 +13,26 @@ import Insights from './rcm/pages/Insights';
 import BlogDetails from './rcm/pages/BlogDetails';
 import Careers from './rcm/pages/Careers';
 import Contact from './rcm/pages/Contact';
+import ThankYou from './rcm/pages/ThankYou';
+import Privacy from './rcm/pages/Privacy';
+import Terms from './rcm/pages/Terms';
 import NotFound from './rcm/pages/NotFound';
+import { initLandingTracking } from './utils/tracking';
 
-// Scroll to hash and top anchor helper
+// Redirect legacy /rcm/insights/:slug to canonical /insights/:slug
+function RcmBlogRedirect() {
+  const { slug } = useParams();
+  return <Navigate to={`/insights/${slug}`} replace />;
+}
+
+// Scroll to hash and top anchor helper + landing tracking
 function ScrollToHash() {
   const location = useLocation();
 
   useEffect(() => {
+    // Capture and persist UTMs and referrer from landing URL in sessionStorage
+    initLandingTracking();
+
     if (location.hash) {
       // Split by '?' to extract only the ID part before any query parameters
       const hashId = location.hash.split('?')[0];
@@ -61,23 +74,23 @@ function App() {
         <Route path="/myclinicboot" element={<MarketingHome />} />
         <Route path="/myclinicboost" element={<MarketingHome />} />
         
-        {/* Support old /rcm prefix routes */}
-        <Route path="/rcm" element={<RcmLayout />}>
-          <Route index element={<Home />} />
-          <Route path="home" element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="solutions" element={<Solutions />} />
-          <Route path="services" element={<Solutions />} />
-          <Route path="insights" element={<Insights />} />
-          <Route path="insights/:slug" element={<BlogDetails />} />
-          <Route path="careers" element={<Careers />} />
-          <Route path="contact" element={<Contact />} />
-        </Route>
+        {/* 301-redirect /rcm/ to canonical root routes */}
+        <Route path="/rcm" element={<Navigate to="/" replace />} />
+        <Route path="/rcm/home" element={<Navigate to="/" replace />} />
+        <Route path="/rcm/about" element={<Navigate to="/about" replace />} />
+        <Route path="/rcm/solutions" element={<Navigate to="/solutions" replace />} />
+        <Route path="/rcm/services" element={<Navigate to="/solutions" replace />} />
+        <Route path="/rcm/insights" element={<Navigate to="/insights" replace />} />
+        <Route path="/rcm/insights/:slug" element={<RcmBlogRedirect />} />
+        <Route path="/rcm/careers" element={<Navigate to="/careers" replace />} />
+        <Route path="/rcm/contact" element={<Navigate to="/contact" replace />} />
+        <Route path="/rcm/contact/thank-you" element={<Navigate to="/contact/thank-you" replace />} />
+        <Route path="/rcm/*" element={<Navigate to="/" replace />} />
 
         {/* RCM Dedicated Sub-application at root level */}
         <Route path="/" element={<RcmLayout />}>
           <Route index element={<Home />} />
-          <Route path="home" element={<Home />} />
+          <Route path="home" element={<Navigate to="/" replace />} />
           <Route path="about" element={<About />} />
           <Route path="solutions" element={<Solutions />} />
           <Route path="services" element={<Solutions />} />
@@ -85,6 +98,10 @@ function App() {
           <Route path="insights/:slug" element={<BlogDetails />} />
           <Route path="careers" element={<Careers />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="contact/thank-you" element={<ThankYou />} />
+          <Route path="thank-you" element={<Navigate to="/contact/thank-you" replace />} />
+          <Route path="privacy" element={<Privacy />} />
+          <Route path="terms" element={<Terms />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

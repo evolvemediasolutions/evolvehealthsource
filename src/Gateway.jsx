@@ -98,7 +98,7 @@ export default function Gateway() {
           </div>
 
           <Link
-            to="/rcm/home"
+            to="/"
             className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#0B4F9C] hover:bg-[#093e7a] text-white rounded-full font-bold text-sm tracking-wide transition-all shadow-lg hover:shadow-blue-500/25 group/btn cursor-pointer"
           >
             <span>Explore Evolve RCM</span>

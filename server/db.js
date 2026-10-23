@@ -32,6 +32,13 @@ export async function initializeDatabase() {
         message TEXT NOT NULL,
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
       );
+      ALTER TABLE contact_submissions ADD COLUMN IF NOT EXISTS utm_source VARCHAR(255);
+      ALTER TABLE contact_submissions ADD COLUMN IF NOT EXISTS utm_medium VARCHAR(255);
+      ALTER TABLE contact_submissions ADD COLUMN IF NOT EXISTS utm_campaign VARCHAR(255);
+      ALTER TABLE contact_submissions ADD COLUMN IF NOT EXISTS utm_term VARCHAR(255);
+      ALTER TABLE contact_submissions ADD COLUMN IF NOT EXISTS utm_content VARCHAR(255);
+      ALTER TABLE contact_submissions ADD COLUMN IF NOT EXISTS referrer TEXT;
+      ALTER TABLE contact_submissions ADD COLUMN IF NOT EXISTS landing_url TEXT;
     `);
     console.log("Database schema initialized successfully.");
   } catch (error) {
