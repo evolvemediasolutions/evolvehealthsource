@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin, Loader2, CheckCircle2, AlertCircle } from 'lucide-
 import { getTrackingData, pushGenerateLeadEvent } from '../../utils/tracking';
 import SEO from '../../components/SEO';
 
-export default function Contact() { 
+export default function Contact() {
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -80,15 +80,15 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-white">
-      <SEO 
+      <SEO
         title="Contact Us | Request an RCM Consultation | Evolve Health Source"
         description="Get in touch with Evolve Health Source. Request a free revenue cycle audit, billing performance assessment, or specialty coding consultation."
         canonical="/contact"
       />
-      <PageHeader 
-        title="Contact Us" 
+      <PageHeader
+        title="Contact Us"
         subtitle="Get in touch with our team to discuss how we can optimize your revenue cycle."
-        breadcrumb="Home / Contact Us" 
+        breadcrumb="Home / Contact Us"
       />
       <div className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16">
@@ -104,7 +104,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-sm font-medium text-gray-500">Phone</div>
-                  <div className="font-semibold text-gray-900">1-800-555-0199</div>
+                  <div className="font-semibold text-gray-900">+142 430 25536</div>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -134,52 +134,52 @@ export default function Contact() {
               </div>
             </div>
           </div>
-          
+
           <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors" 
-                    placeholder="John" 
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                    placeholder="John"
                   />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                     required
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors" 
-                    placeholder="Doe" 
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                    placeholder="Doe"
                   />
                 </div>
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors" 
-                  placeholder="john@example.com" 
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                  placeholder="john@example.com"
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                <textarea 
-                  rows={4} 
+                <textarea
+                  rows={4}
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   required
-                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors" 
+                  className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
                   placeholder="How can we help you?"
                 ></textarea>
               </div>
@@ -198,8 +198,8 @@ export default function Contact() {
                 </div>
               )}
 
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 disabled={status === 'submitting'}
                 className="w-full py-4 rounded-xl bg-primary-600 text-white font-bold hover:bg-primary-700 transition-colors shadow-lg shadow-primary-600/20 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
@@ -217,5 +217,5 @@ export default function Contact() {
         </div>
       </div>
     </div>
-  ); 
+  );
 }
