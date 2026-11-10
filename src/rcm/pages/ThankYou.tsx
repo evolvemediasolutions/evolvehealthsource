@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { 
-  CheckCircle2, 
-  ArrowRight, 
-  PhoneCall, 
-  Mail, 
-  Calendar, 
-  FileSearch, 
+import {
+  CheckCircle2,
+  ArrowRight,
+  PhoneCall,
+  Mail,
+  Calendar,
+  FileSearch,
   Sparkles,
   ShieldCheck,
   Home
@@ -43,20 +43,20 @@ export default function ThankYou() {
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
-      <SEO 
+      <SEO
         title="Thank You | Evolve Health Source"
         description="Thank you for contacting Evolve Health Source. Our revenue cycle advisory team will review your enquiry and reach out within 24 hours."
         canonical="/contact/thank-you"
       />
-      <PageHeader 
-        title="Thank You for Reaching Out!" 
+      <PageHeader
+        title="Thank You for Reaching Out!"
         subtitle="Your enquiry has been successfully received. We're excited to partner with you on revenue cycle excellence."
-        breadcrumb="Home / Contact / Thank You" 
+        breadcrumb="Home / Contact / Thank You"
       />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 -mt-10 relative z-20 flex-grow">
         {/* Main Confirmation Card */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -139,11 +139,11 @@ export default function ThankYou() {
           </div>
           <div className="flex flex-col sm:flex-row gap-4 shrink-0">
             <a
-              href="tel:18005550199"
+              href="tel:14243025536"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors text-sm font-semibold border border-slate-700"
             >
               <PhoneCall className="w-4 h-4 text-emerald-400" />
-              1-800-555-0199
+              +142 430 25536
             </a>
             <a
               href="mailto:connect@evolvehealthsource.com"
