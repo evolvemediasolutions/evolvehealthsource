@@ -129,7 +129,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-sm font-medium text-gray-500">Office</div>
-                  <div className="font-semibold text-gray-900">123 Healthcare Blvd, Chicago, IL 60601</div>
+                  <div className="font-semibold text-gray-900">7643, Gate Parkway Suite 982, Jacksonville,FL 32256, USA</div>
                 </div>
               </div>
             </div>
