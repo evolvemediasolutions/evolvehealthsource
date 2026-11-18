@@ -139,11 +139,11 @@ export default function ThankYou() {
           </div>
           <div className="flex flex-col sm:flex-row gap-4 shrink-0">
             <a
-              href="tel:14243025536"
+              href="tel:+14243025536"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors text-sm font-semibold border border-slate-700"
             >
               <PhoneCall className="w-4 h-4 text-emerald-400" />
-              +142 430 25536
+              +1 (424) 302-5536
             </a>
             <a
               href="mailto:connect@evolvehealthsource.com"

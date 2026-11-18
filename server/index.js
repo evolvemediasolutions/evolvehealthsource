@@ -2,9 +2,10 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import path from 'path';
+import fs from 'fs';
 import { fileURLToPath } from 'url';
 import pool, { initializeDatabase } from './db.js';
-import { sendContactNotification } from './mailer.js';
+import { sendContactNotification, sendJobApplicationNotification } from './mailer.js';
 
 dotenv.config();
 
@@ -15,7 +16,8 @@ const app = express();
 const port = process.env.PORT || 3001;
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 
 // Initialize database schema
 initializeDatabase();
@@ -142,6 +144,126 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
+// Career application POST endpoint (data sent to chitra@evolvehealthsource.com)
+const handleCareerApplication = async (req, res) => {
+  const {
+    name,
+    email,
+    phone,
+    position,
+    experience,
+    message,
+    resumeFileName,
+    resumeBase64,
+    utm_source,
+    utm_medium,
+    utm_campaign,
+    utm_term,
+    utm_content,
+    referrer,
+    landing_url,
+  } = req.body;
+
+  if (!name || !email || !position) {
+    return res.status(400).json({ error: 'Name, email, and position are required.' });
+  }
+
+  let databaseSaved = false;
+  let emailSent = false;
+  let errorDetails = {};
+
+  try {
+    // 1. Insert into Neon DB database
+    if (process.env.DATABASE_URL) {
+      try {
+        const insertQuery = `
+          INSERT INTO job_applications 
+          (name, email, phone, position, experience, message, resume_filename, utm_source, utm_medium, utm_campaign, referrer, landing_url) 
+          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) 
+          RETURNING id
+        `;
+        const values = [
+          name,
+          email,
+          phone || null,
+          position,
+          experience || null,
+          message || null,
+          resumeFileName || null,
+          utm_source || null,
+          utm_medium || null,
+          utm_campaign || null,
+          referrer || null,
+          landing_url || null,
+        ];
+        const result = await pool.query(insertQuery, values);
+        console.log(`Saved job application to database with ID: ${result.rows[0].id}`);
+        databaseSaved = true;
+      } catch (dbError) {
+        console.error('Database insertion of job application failed:', dbError);
+        errorDetails.database = dbError.message || dbError;
+      }
+    } else {
+      console.warn('Skipped database save for application: DATABASE_URL not set.');
+    }
+
+    // 2. Send email notification to chitra@evolvehealthsource.com via MailerSend
+    if (process.env.MAILERSEND_API_KEY) {
+      try {
+        const emailResult = await sendJobApplicationNotification({
+          name,
+          email,
+          phone,
+          position,
+          experience,
+          message,
+          resumeFileName,
+          resumeBase64,
+          utm_source,
+          utm_medium,
+          utm_campaign,
+          utm_term,
+          utm_content,
+          referrer,
+          landing_url,
+        });
+        emailSent = emailResult.success;
+        if (!emailResult.success) {
+          errorDetails.email = emailResult.error;
+        }
+      } catch (emailError) {
+        console.error('MailerSend operation failed for application:', emailError);
+        errorDetails.email = emailError.message || emailError;
+      }
+    } else {
+      console.warn('Skipped email notification: MAILERSEND_API_KEY not set.');
+    }
+
+    if (!databaseSaved && !emailSent) {
+      return res.status(500).json({
+        error: 'Failed to process job application.',
+        details: errorDetails,
+      });
+    }
+
+    return res.status(201).json({
+      success: true,
+      message: 'Job application submitted successfully to chitra@evolvehealthsource.com.',
+      details: {
+        databaseSaved,
+        emailSent,
+        errors: Object.keys(errorDetails).length > 0 ? errorDetails : undefined,
+      },
+    });
+  } catch (error) {
+    console.error('Error handling career application:', error);
+    return res.status(500).json({ error: 'An internal server error occurred while processing your application.' });
+  }
+};
+
+app.post('/api/careers/apply', handleCareerApplication);
+app.post('/api/career-apply', handleCareerApplication);
+
 // Serve static files from the Vite frontend build folder (dist) - only when not on Vercel
 if (!process.env.VERCEL) {
   // 301-redirect /rcm and /rcm/* to / and /*
@@ -176,6 +298,10 @@ if (!process.env.VERCEL) {
     const isValid = validSpaPaths.includes(reqPath) || isDynamicBlog;
 
     if (isValid) {
+      const candidatePath = path.join(__dirname, '../dist', reqPath, 'index.html');
+      if (fs.existsSync(candidatePath)) {
+        return res.sendFile(candidatePath);
+      }
       res.sendFile(path.join(__dirname, '../dist/index.html'));
     } else {
       const custom404 = path.join(__dirname, '../dist/404.html');

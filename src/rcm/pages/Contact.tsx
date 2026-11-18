@@ -104,7 +104,9 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-sm font-medium text-gray-500">Phone</div>
-                  <div className="font-semibold text-gray-900">+142 430 25536</div>
+                  <a href="tel:+14243025536" className="font-semibold text-gray-900 hover:text-primary-600 transition-colors">
+                    +1 (424) 302-5536
+                  </a>
                 </div>
               </div>
               <div className="flex items-start gap-4">

@@ -1,4 +1,4 @@
-import { MailerSend, EmailParams, Sender, Recipient } from 'mailersend';
+import { MailerSend, EmailParams, Sender, Recipient, Attachment } from 'mailersend';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -96,6 +96,136 @@ ${hasAttribution ? `Attribution:
     return { success: true, data: response };
   } catch (error) {
     console.error("Error sending email via MailerSend:", error);
+    return { success: false, error };
+  }
+}
+
+export async function sendJobApplicationNotification({
+  name,
+  email,
+  phone,
+  position,
+  experience,
+  message,
+  resumeFileName,
+  resumeBase64,
+  utm_source,
+  utm_medium,
+  utm_campaign,
+  utm_term,
+  utm_content,
+  referrer,
+  landing_url,
+}) {
+  if (!mailerSend) {
+    console.warn("Skipping email send: MailerSend is not configured.");
+    return { success: false, error: "MailerSend not configured" };
+  }
+
+  const fromEmail = process.env.MAILERSEND_FROM_EMAIL || 'noreply@evolvehealthsource.com';
+  // Send directly to chitra@evolvehealthsource.com as requested by user
+  const toEmail = "chitra@evolvehealthsource.com";
+
+  try {
+    console.log(`Sending job application email from ${fromEmail} to ${toEmail}...`);
+
+    const sentFrom = new Sender(fromEmail, "Evolve Health Source Careers");
+    const recipients = [
+      new Recipient(toEmail, "Chitra - Evolve Health Source Recruitment")
+    ];
+
+    const hasAttribution = Boolean(utm_source || utm_medium || utm_campaign || utm_term || utm_content || referrer || landing_url);
+
+    const htmlContent = `
+      <div style="font-family: Arial, sans-serif; max-width: 650px; margin: 0 auto; color: #1e293b;">
+        <h2 style="color: #0f172a; border-bottom: 2px solid #0d9488; padding-bottom: 10px;">
+          New Career Application: ${position}
+        </h2>
+        <table style="width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 14px;">
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold; width: 140px; color: #475569;">Candidate Name:</td>
+            <td style="padding: 8px 0; color: #0f172a; font-weight: 600;">${name}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold; color: #475569;">Position Applied:</td>
+            <td style="padding: 8px 0; color: #0d9488; font-weight: bold;">${position}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold; color: #475569;">Email Address:</td>
+            <td style="padding: 8px 0;"><a href="mailto:${email}" style="color: #2563eb; text-decoration: none;">${email}</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold; color: #475569;">Phone Number:</td>
+            <td style="padding: 8px 0;"><a href="tel:${phone || ''}" style="color: #2563eb; text-decoration: none;">${phone || 'Not provided'}</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold; color: #475569;">Experience:</td>
+            <td style="padding: 8px 0;">${experience || 'Not specified'}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px 0; font-weight: bold; color: #475569;">Resume File:</td>
+            <td style="padding: 8px 0;">${resumeFileName ? `<strong>${resumeFileName}</strong> (Attached)` : 'No file attached'}</td>
+          </tr>
+        </table>
+
+        ${message ? `
+        <h3 style="margin-top: 25px; margin-bottom: 8px; font-size: 15px; color: #334155;">Candidate Notes / Cover Letter:</h3>
+        <blockquote style="background: #f8fafc; padding: 15px; border-left: 4px solid #0d9488; margin: 0; font-style: italic; color: #334155; border-radius: 0 8px 8px 0;">
+          ${message.replace(/\n/g, '<br/>')}
+        </blockquote>
+        ` : ''}
+
+        ${hasAttribution ? `
+        <div style="background: #f1f5f9; padding: 14px; border-radius: 8px; margin-top: 25px; font-size: 12px; color: #64748b;">
+          <h4 style="margin: 0 0 8px 0; font-size: 13px; color: #334155;">Lead & Referral Attribution</h4>
+          <p style="margin: 3px 0;"><strong>Source:</strong> ${utm_source || 'N/A'}</p>
+          <p style="margin: 3px 0;"><strong>Medium:</strong> ${utm_medium || 'N/A'}</p>
+          <p style="margin: 3px 0;"><strong>Campaign:</strong> ${utm_campaign || 'N/A'}</p>
+          <p style="margin: 3px 0;"><strong>Referrer:</strong> ${referrer || 'Direct'}</p>
+          <p style="margin: 3px 0;"><strong>Landing URL:</strong> ${landing_url || 'N/A'}</p>
+        </div>` : ''}
+
+        <p style="margin-top: 30px; font-size: 12px; color: #94a3b8; border-top: 1px solid #e2e8f0; padding-top: 12px;">
+          This application was submitted via the Evolve Health Source Careers Portal.
+        </p>
+      </div>
+    `;
+
+    const textContent = `New Career Application: ${position}
+Candidate Name: ${name}
+Position: ${position}
+Email: ${email}
+Phone: ${phone || 'N/A'}
+Experience: ${experience || 'N/A'}
+Resume File: ${resumeFileName || 'None'}
+
+Notes:
+${message || 'None'}
+
+${hasAttribution ? `Attribution:
+- UTM Source: ${utm_source || 'N/A'}
+- UTM Campaign: ${utm_campaign || 'N/A'}
+- Referrer: ${referrer || 'Direct'}
+` : ''}`;
+
+    const emailParams = new EmailParams()
+      .setFrom(sentFrom)
+      .setTo(recipients)
+      .setSubject(`New Career Application: ${position} - ${name}`)
+      .setHtml(htmlContent)
+      .setText(textContent);
+
+    if (resumeBase64 && resumeFileName) {
+      const cleanBase64 = resumeBase64.includes(',') ? resumeBase64.split(',')[1] : resumeBase64;
+      const attachment = new Attachment(cleanBase64, resumeFileName, 'attachment');
+      emailParams.setAttachments([attachment]);
+    }
+
+    const response = await mailerSend.email.send(emailParams);
+    console.log("Job application email sent successfully:", response);
+    return { success: true, data: response };
+  } catch (error) {
+    console.error("Error sending job application email via MailerSend:", error);
     return { success: false, error };
   }
 }

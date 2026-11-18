@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="relative bg-slate-950 overflow-hidden">
       <SEO 
-        title="Evolve Health Source | Healthcare Revenue Cycle Management & Billing"
+        title="Evolve Health Source | Healthcare Revenue Cycle Management & Medical Billing"
         description="Maximize clinical revenue and eliminate claims denials with Evolve Health Source. Delivering end-to-end medical billing, certified medical coding, and clean-claim automation."
         canonical="/"
       />

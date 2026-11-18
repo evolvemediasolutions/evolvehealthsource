@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronDown, Menu, X, Activity } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -21,6 +22,7 @@ export default function Navbar() {
   useEffect(() => {
     setMobileMenuOpen(false);
     setActiveDropdown(null);
+    setOpenMobileDropdown(null);
   }, [location.pathname]);
 
   const isMarketing = location.pathname.startsWith('/marketing');
@@ -47,6 +49,7 @@ export default function Navbar() {
           { name: 'Denial Prevention & Recovery', path: '/solutions?tab=4' },
         ]
       },
+      /*
       {
         name: 'Services',
         path: '/services',
@@ -54,6 +57,7 @@ export default function Navbar() {
           { name: 'My Clinic Boost', path: '/myclinicboost' }
         ]
       },
+      */
       {
         name: 'Insights',
         path: '/insights',
@@ -216,36 +220,82 @@ export default function Navbar() {
             transition={{ duration: 0.3 }}
             className="md:hidden bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-white/5 overflow-hidden"
           >
-            <div className="px-4 py-6 space-y-4">
-              {navLinks.map((link) => (
-                <div key={link.name} className="space-y-2">
-                  <Link
-                    to={link.path}
-                    className="block font-semibold text-slate-900 dark:text-white text-lg py-1"
-                  >
-                    {link.name}
-                  </Link>
-                  {link.dropdown && (
-                    <div className="pl-4 space-y-2 border-l border-slate-200 dark:border-white/10 ml-2">
-                      {link.dropdown.map((item) => (
-                        <Link
-                          key={item.name}
-                          to={item.path}
-                          className="block text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white py-1"
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
+            <div className="px-5 py-6 space-y-3">
+              {navLinks.map((link) => {
+                if (link.dropdown) {
+                  const isOpen = openMobileDropdown === link.name;
+                  return (
+                    <div key={link.name} className="border-b border-slate-100 dark:border-slate-800/60 pb-3 last:border-b-0">
+                      <button
+                        type="button"
+                        onClick={() => setOpenMobileDropdown(isOpen ? null : link.name)}
+                        className="flex items-center justify-between w-full font-semibold text-slate-900 dark:text-white text-lg py-1.5 hover:text-teal-600 dark:hover:text-teal-400 transition-colors text-left cursor-pointer"
+                        aria-expanded={isOpen}
+                      >
+                        <span>{link.name}</span>
+                        <ChevronDown
+                          className={cn(
+                            "h-5 w-5 text-slate-400 transition-transform duration-300",
+                            isOpen ? "rotate-180 text-teal-600 dark:text-teal-400" : ""
+                          )}
+                        />
+                      </button>
+
+                      <AnimatePresence>
+                        {isOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.25, ease: 'easeInOut' }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4 space-y-2 border-l-2 border-teal-500/40 dark:border-teal-400/40 ml-2 mt-2 mb-1 py-1">
+                              <Link
+                                to={link.path}
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="block text-sm font-semibold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 py-1"
+                              >
+                                All {link.name} &rarr;
+                              </Link>
+                              {link.dropdown.map((item) => (
+                                <Link
+                                  key={item.name}
+                                  to={item.path}
+                                  onClick={() => setMobileMenuOpen(false)}
+                                  className="block text-sm text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white py-1 transition-colors"
+                                >
+                                  {item.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
-                  )}
-                </div>
-              ))}
-              <div className="pt-4">
+                  );
+                }
+
+                return (
+                  <div key={link.name} className="border-b border-slate-100 dark:border-slate-800/60 pb-3 last:border-b-0">
+                    <Link
+                      to={link.path}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="block font-semibold text-slate-900 dark:text-white text-lg py-1.5 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </div>
+                );
+              })}
+
+              <div className="pt-3">
                 <Link
                   to="/contact"
-                  className="block w-full text-center bg-gradient-to-r from-[#2563eb] to-[#10b981] text-white px-5 py-3.5 rounded-full font-bold text-sm shadow-lg shadow-[#10b981]/20"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="block w-full text-center bg-gradient-to-r from-[#2563eb] to-[#10b981] text-white px-5 py-3.5 rounded-full font-bold text-sm shadow-lg shadow-[#10b981]/20 hover:opacity-95 transition-opacity"
                 >
-                  Schedule Consultation
+                  {isMarketing ? "Schedule Demo" : "Schedule Consultation"}
                 </Link>
               </div>
             </div>

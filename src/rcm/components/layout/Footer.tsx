@@ -1,20 +1,8 @@
 import { Link } from 'react-router-dom';
-import { Activity, Mail, MapPin, Phone, Linkedin, Twitter, Facebook, ArrowRight } from 'lucide-react';
-import React, { useState } from 'react';
+import { Mail, MapPin, Phone, Linkedin } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setEmail('');
-      setTimeout(() => setSubscribed(false), 3000);
-    }
-  };
 
   const isMarketing = window.location.pathname.startsWith('/marketing');
 
@@ -51,40 +39,15 @@ export default function Footer() {
                 : "Transforming healthcare revenue through intelligent, technology-driven Revenue Cycle Management solutions for modern healthcare providers."}
             </p>
 
-            {/* Newsletter section */}
-            <form onSubmit={handleSubscribe} className="max-w-sm mb-8">
-              <h4 className="text-white text-sm font-bold mb-3 uppercase tracking-wider">Stay Updated</h4>
-              <div className="relative flex items-center">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter email address"
-                  required
-                  className="w-full bg-slate-900 border border-white/10 rounded-full py-3 pl-5 pr-12 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all"
-                />
-                <button
-                  type="submit"
-                  className="absolute right-1.5 bg-gradient-to-r from-[#2563eb] to-[#10b981] hover:opacity-90 text-white rounded-full p-2 transition-all"
-                  aria-label="Subscribe"
-                >
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </div>
-              {subscribed && (
-                <p className="text-accent text-xs mt-2 font-medium">Thank you for subscribing!</p>
-              )}
-            </form>
-
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-primary/20 hover:border-primary/30 hover:text-white transition-all duration-300">
+              <a
+                href="https://www.linkedin.com/company/evolvehealthsource/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-[#0A66C2]/20 hover:border-[#0A66C2]/40 hover:text-[#0A66C2] transition-all duration-300 text-slate-300"
+              >
                 <Linkedin className="h-5 w-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-primary/20 hover:border-primary/30 hover:text-white transition-all duration-300">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-primary/20 hover:border-primary/30 hover:text-white transition-all duration-300">
-                <Facebook className="h-5 w-5" />
               </a>
             </div>
           </div>
@@ -111,10 +74,10 @@ export default function Footer() {
                 </>
               ) : (
                 <>
-                  <li><Link to="/solutions" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Medical Coding</Link></li>
-                  <li><Link to="/solutions" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Medical Billing</Link></li>
-                  <li><Link to="/solutions" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Accounts Receivable</Link></li>
-                  <li><Link to="/solutions" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Denial Management</Link></li>
+                  <li><Link to="/solutions?tab=1#solutions" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Medical Coding</Link></li>
+                  <li><Link to="/solutions?tab=2#solutions" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Medical Billing</Link></li>
+                  <li><Link to="/solutions?tab=3#solutions" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Accounts Receivable</Link></li>
+                  <li><Link to="/solutions?tab=4#solutions" className="text-slate-400 hover:text-white hover:translate-x-1 inline-block transition-all text-sm">Denial Management</Link></li>
                 </>
               )}
             </ul>
@@ -129,7 +92,9 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-secondary shrink-0" />
-                <span className="text-slate-400 text-sm">+142 430 25536</span>
+                <a href="tel:+14243025536" className="text-slate-400 hover:text-white transition-colors text-sm">
+                  +1 (424) 302-5536
+                </a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="h-5 w-5 text-secondary shrink-0 mt-0.5" />

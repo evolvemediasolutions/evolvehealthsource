@@ -39,6 +39,23 @@ export async function initializeDatabase() {
       ALTER TABLE contact_submissions ADD COLUMN IF NOT EXISTS utm_content VARCHAR(255);
       ALTER TABLE contact_submissions ADD COLUMN IF NOT EXISTS referrer TEXT;
       ALTER TABLE contact_submissions ADD COLUMN IF NOT EXISTS landing_url TEXT;
+
+      CREATE TABLE IF NOT EXISTS job_applications (
+        id SERIAL PRIMARY KEY,
+        name VARCHAR(255) NOT NULL,
+        email VARCHAR(255) NOT NULL,
+        phone VARCHAR(50),
+        position VARCHAR(255) NOT NULL,
+        experience VARCHAR(100),
+        message TEXT,
+        resume_filename VARCHAR(255),
+        utm_source VARCHAR(255),
+        utm_medium VARCHAR(255),
+        utm_campaign VARCHAR(255),
+        referrer TEXT,
+        landing_url TEXT,
+        created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+      );
     `);
     console.log("Database schema initialized successfully.");
   } catch (error) {

@@ -31,7 +31,13 @@ export default function SEO({
 
   useEffect(() => {
     // 1. Update Document Title
-    document.title = title;
+    if (title) {
+      document.title = title;
+      const titleElements = document.querySelectorAll('title');
+      titleElements.forEach((el) => {
+        el.textContent = title;
+      });
+    }
 
     // Helper: update or create <meta>
     const updateMeta = (nameAttr: 'name' | 'property', attrValue: string, content: string) => {

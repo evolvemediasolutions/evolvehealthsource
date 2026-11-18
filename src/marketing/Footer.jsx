@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Instagram, Linkedin, Youtube, Phone, MessageSquare, Mail, MapPin } from 'lucide-react';
+import { Linkedin, Phone, MessageSquare, Mail, MapPin } from 'lucide-react';
 
 export default function Footer() {
   const servicesLinks = [
@@ -56,16 +56,16 @@ export default function Footer() {
             {/* Social Media Links */}
             <div className="flex gap-3">
               {[
-                { icon: Facebook, href: '#' },
-                { icon: Instagram, href: '#' },
-                { icon: Linkedin, href: '#' },
-                { icon: Youtube, href: '#' }
+                { icon: Linkedin, href: 'https://www.linkedin.com/company/evolvehealthsource/' }
               ].map((item, i) => {
                 const IconComponent = item.icon;
                 return (
                   <a
                     key={i}
                     href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
                     className="w-9 h-9 rounded-full border border-blue-900/40 bg-[#02142d]/60 hover:bg-[#8CD5EC] hover:text-[#031D3F] text-white flex items-center justify-center transition-colors"
                   >
                     <IconComponent className="w-4.5 h-4.5" />

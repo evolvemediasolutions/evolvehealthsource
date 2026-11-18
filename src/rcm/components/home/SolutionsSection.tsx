@@ -90,9 +90,38 @@ export default function SolutionsSection() {
     }
 
     if (tab !== null) {
-      const idx = parseInt(tab, 10);
-      if (idx >= 0 && idx < solutions.length) {
-        setActiveIndex(idx);
+      const tabLower = tab.toLowerCase();
+      const tabMap: Record<string, number> = {
+        '0': 0,
+        'rcm': 0,
+        'revenue-cycle-management': 0,
+        '1': 1,
+        'coding': 1,
+        'medical-coding': 1,
+        '2': 2,
+        'billing': 2,
+        'medical-billing': 2,
+        '3': 3,
+        'ar': 3,
+        'accounts-receivable': 3,
+        '4': 4,
+        'denial': 4,
+        'denial-management': 4,
+        'denial-prevention': 4,
+      };
+
+      let targetIndex = -1;
+      if (tabLower in tabMap) {
+        targetIndex = tabMap[tabLower];
+      } else {
+        const idx = parseInt(tab, 10);
+        if (!isNaN(idx) && idx >= 0 && idx < solutions.length) {
+          targetIndex = idx;
+        }
+      }
+
+      if (targetIndex >= 0) {
+        setActiveIndex(targetIndex);
       }
     }
   }, [location.search, location.hash]);

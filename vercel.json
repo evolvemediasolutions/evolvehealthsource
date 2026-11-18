@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "cleanUrls": true,
   "redirects": [
     {
       "source": "/rcm",
@@ -29,59 +30,71 @@
     },
     {
       "source": "/about",
-      "destination": "/index.html"
+      "destination": "/about/index.html"
     },
     {
       "source": "/solutions",
-      "destination": "/index.html"
+      "destination": "/solutions/index.html"
     },
     {
       "source": "/services",
-      "destination": "/index.html"
+      "destination": "/services/index.html"
     },
     {
       "source": "/insights",
-      "destination": "/index.html"
+      "destination": "/insights/index.html"
+    },
+    {
+      "source": "/insights/navigating-icd-10-updates-2026",
+      "destination": "/insights/navigating-icd-10-updates-2026/index.html"
+    },
+    {
+      "source": "/insights/strategies-reduce-claim-denials",
+      "destination": "/insights/strategies-reduce-claim-denials/index.html"
+    },
+    {
+      "source": "/insights/ai-in-modern-ar-management",
+      "destination": "/insights/ai-in-modern-ar-management/index.html"
     },
     {
       "source": "/insights/:slug",
-      "destination": "/index.html"
+      "destination": "/insights/index.html"
     },
     {
       "source": "/careers",
-      "destination": "/index.html"
+      "destination": "/careers/index.html"
     },
     {
       "source": "/contact",
-      "destination": "/index.html"
+      "destination": "/contact/index.html"
     },
     {
       "source": "/contact/thank-you",
-      "destination": "/index.html"
+      "destination": "/contact/thank-you/index.html"
     },
     {
       "source": "/thank-you",
-      "destination": "/index.html"
+      "destination": "/contact/thank-you/index.html"
     },
     {
       "source": "/marketing/home",
-      "destination": "/index.html"
+      "destination": "/marketing/home/index.html"
     },
     {
       "source": "/myclinicboot",
-      "destination": "/index.html"
+      "destination": "/myclinicboot/index.html"
     },
     {
       "source": "/myclinicboost",
-      "destination": "/index.html"
+      "destination": "/myclinicboost/index.html"
     },
     {
       "source": "/privacy",
-      "destination": "/index.html"
+      "destination": "/privacy/index.html"
     },
     {
       "source": "/terms",
-      "destination": "/index.html"
+      "destination": "/terms/index.html"
     }
   ]
 }
