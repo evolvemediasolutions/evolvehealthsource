@@ -123,16 +123,10 @@ export default function Gateway() {
             +91 90254 81909
           </a>
           <a
-            href="mailto:rory@evolvehealthsource.com"
+            href="mailto:chitra@evolvehealthsource.com"
             className="block text-xs font-semibold text-blue-600 hover:underline"
           >
-            rory@evolvehealthsource.com
-          </a>
-          <a
-            href="mailto:connect@evolvehealthsource.com"
-            className="block text-xs font-semibold text-blue-600 hover:underline"
-          >
-            connect@evolvehealthsource.com
+            chitra@evolvehealthsource.com
           </a>
         </div>
       </div>

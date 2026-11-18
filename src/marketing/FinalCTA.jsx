@@ -40,17 +40,8 @@ export default function FinalCTA() {
       iconBg: 'bg-[#E8F0FE]',
       iconColor: 'text-[#1A73E8]',
       title: 'Email',
-      value: 'rory@evolvehealthsource.com',
-      href: 'mailto:rory@evolvehealthsource.com',
-      isLink: true
-    },
-    {
-      icon: Mail,
-      iconBg: 'bg-[#E8F0FE]',
-      iconColor: 'text-[#1A73E8]',
-      title: 'Email',
-      value: 'connect@evolvehealthsource.com',
-      href: 'mailto:connect@evolvehealthsource.com',
+      value: 'chitra@evolvehealthsource.com',
+      href: 'mailto:chitra@evolvehealthsource.com',
       isLink: true
     },
     {

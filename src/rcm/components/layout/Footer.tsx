@@ -90,11 +90,16 @@ export default function Footer() {
                 <MapPin className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
                 <span className="text-slate-400 text-sm leading-relaxed">7643, Gate Parkway Suite 982<br />Jacksonville,FL 32256, USA</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="h-5 w-5 text-secondary shrink-0" />
-                <a href="tel:+14243025536" className="text-slate-400 hover:text-white transition-colors text-sm">
-                  +1 (424) 302-5536
-                </a>
+              <li className="flex items-start gap-3">
+                <Phone className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-1 text-slate-400 text-sm">
+                  <a href="tel:+14243025536" className="hover:text-white transition-colors">
+                    +1 (424) 302-5536
+                  </a>
+                  <a href="tel:+18134610141" className="hover:text-white transition-colors">
+                    +1 (813) 461-0141
+                  </a>
+                </div>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="h-5 w-5 text-secondary shrink-0 mt-0.5" />
@@ -102,14 +107,9 @@ export default function Footer() {
                   {isMarketing ? (
                     "hello@myclinicboost.com"
                   ) : (
-                    <>
-                      <a href="mailto:rory@evolvehealthsource.com" className="hover:text-white transition-colors">
-                        rory@evolvehealthsource.com
-                      </a>
-                      <a href="mailto:connect@evolvehealthsource.com" className="hover:text-white transition-colors">
-                        connect@evolvehealthsource.com
-                      </a>
-                    </>
+                    <a href="mailto:chitra@evolvehealthsource.com" className="hover:text-white transition-colors">
+                      chitra@evolvehealthsource.com
+                    </a>
                   )}
                 </div>
               </li>

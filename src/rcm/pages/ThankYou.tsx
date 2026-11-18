@@ -146,11 +146,18 @@ export default function ThankYou() {
               +1 (424) 302-5536
             </a>
             <a
-              href="mailto:connect@evolvehealthsource.com"
+              href="tel:+18134610141"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 hover:text-white transition-colors text-sm font-semibold border border-slate-700"
+            >
+              <PhoneCall className="w-4 h-4 text-emerald-400" />
+              +1 (813) 461-0141
+            </a>
+            <a
+              href="mailto:chitra@evolvehealthsource.com"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white transition-colors text-sm font-semibold shadow-md shadow-emerald-600/20"
             >
               <Mail className="w-4 h-4" />
-              connect@evolvehealthsource.com
+              chitra@evolvehealthsource.com
             </a>
           </div>
         </div>

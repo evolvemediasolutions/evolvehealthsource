@@ -194,8 +194,7 @@ ${hasAttribution ? `Attribution:
       console.log(`Sending contact email notification via MailerSend from ${fromEmail} to ${toEmail}...`);
       const sentFrom = new Sender(fromEmail, "Evolve Health Source");
       const recipients = [
-        new Recipient(toEmail, "Chitra - Evolve Health Source"),
-        new Recipient("connect@evolvehealthsource.com", "Evolve Support")
+        new Recipient(toEmail, "Chitra - Evolve Health Source")
       ];
 
       const emailParams = new EmailParams()

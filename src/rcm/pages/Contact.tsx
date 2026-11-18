@@ -98,15 +98,20 @@ export default function Contact() {
               Fill out the form and our team will get back to you within 24 hours to schedule your consultation.
             </p>
             <div className="space-y-6">
-              <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-primary-50 text-primary-600 flex items-center justify-center">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-full bg-primary-50 text-primary-600 flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="text-sm font-medium text-gray-500">Phone</div>
-                  <a href="tel:+14243025536" className="font-semibold text-gray-900 hover:text-primary-600 transition-colors">
-                    +1 (424) 302-5536
-                  </a>
+                  <div className="flex flex-col gap-1 font-semibold text-gray-900">
+                    <a href="tel:+14243025536" className="hover:text-primary-600 transition-colors">
+                      +1 (424) 302-5536
+                    </a>
+                    <a href="tel:+18134610141" className="hover:text-primary-600 transition-colors">
+                      +1 (813) 461-0141
+                    </a>
+                  </div>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -116,11 +121,8 @@ export default function Contact() {
                 <div>
                   <div className="text-sm font-medium text-gray-500">Email</div>
                   <div className="flex flex-col gap-1 font-semibold text-gray-900">
-                    <a href="mailto:rory@evolvehealthsource.com" className="hover:text-primary-600 transition-colors">
-                      rory@evolvehealthsource.com
-                    </a>
-                    <a href="mailto:connect@evolvehealthsource.com" className="hover:text-primary-600 transition-colors">
-                      connect@evolvehealthsource.com
+                    <a href="mailto:chitra@evolvehealthsource.com" className="hover:text-primary-600 transition-colors">
+                      chitra@evolvehealthsource.com
                     </a>
                   </div>
                 </div>

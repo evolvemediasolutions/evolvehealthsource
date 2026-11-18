@@ -36,7 +36,7 @@ export default function Privacy() {
         <section>
           <h2 className="text-2xl font-bold text-slate-900 mb-4">4. Contact Privacy Officer</h2>
           <p>
-            For inquiries regarding privacy practices or data governance, contact our compliance office at <a href="mailto:connect@evolvehealthsource.com" className="text-primary-600 font-semibold hover:underline">connect@evolvehealthsource.com</a>.
+            For inquiries regarding privacy practices or data governance, contact our compliance office at <a href="mailto:chitra@evolvehealthsource.com" className="text-primary-600 font-semibold hover:underline">chitra@evolvehealthsource.com</a>.
           </p>
         </section>
       </div>

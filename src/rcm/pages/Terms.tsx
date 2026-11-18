@@ -36,7 +36,7 @@ export default function Terms() {
         <section>
           <h2 className="text-2xl font-bold text-slate-900 mb-4">4. Inquiries</h2>
           <p>
-            For legal inquiries concerning terms or agreements, please reach out to <a href="mailto:connect@evolvehealthsource.com" className="text-primary-600 font-semibold hover:underline">connect@evolvehealthsource.com</a>.
+            For legal inquiries concerning terms or agreements, please reach out to <a href="mailto:chitra@evolvehealthsource.com" className="text-primary-600 font-semibold hover:underline">chitra@evolvehealthsource.com</a>.
           </p>
         </section>
       </div>
