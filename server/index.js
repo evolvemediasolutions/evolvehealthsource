@@ -25,12 +25,12 @@ initializeDatabase().catch((err) => {
 });
 
 // Health check endpoint
-app.get('/api/health', (req, res) => {
+app.get(['/api/health', '/health'], (req, res) => {
   res.json({ status: 'ok', time: new Date() });
 });
 
 // Contact form POST endpoint
-app.post('/api/contact', async (req, res) => {
+app.post(['/api/contact', '/contact'], async (req, res) => {
   const {
     firstName,
     lastName,
@@ -263,8 +263,7 @@ const handleCareerApplication = async (req, res) => {
   }
 };
 
-app.post('/api/careers/apply', handleCareerApplication);
-app.post('/api/career-apply', handleCareerApplication);
+app.post(['/api/careers/apply', '/careers/apply', '/api/career-apply', '/career-apply'], handleCareerApplication);
 
 // Serve static files from the Vite frontend build folder (dist) - only when not on Vercel
 if (!process.env.VERCEL) {
