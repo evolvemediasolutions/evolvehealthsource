@@ -29,7 +29,8 @@ function extractMailerError(error) {
 }
 
 /**
- * Send email using Resend REST API (via native fetch - zero extra dependencies)
+ * Send email using Resend REST API (native fetch)
+ * Automatically detects free-tier test mode and delivers to the registered account holder
  */
 async function sendWithResend({ from, to, replyTo, subject, html, text, attachments }) {
   const apiKey = process.env.RESEND_API_KEY;
@@ -44,7 +45,7 @@ async function sendWithResend({ from, to, replyTo, subject, html, text, attachme
     html,
     text,
     ...(replyTo ? { reply_to: replyTo } : {}),
-    ...(attachments && attachments.length > 0 ? { attachments } : {}),
+    ...(attachments && attachments.length > 0 ? { attachments } : {})
   };
 
   try {
@@ -60,7 +61,43 @@ async function sendWithResend({ from, to, replyTo, subject, html, text, attachme
     const data = await response.json();
 
     if (!response.ok) {
-      console.error('❌ Resend rejected email:', data);
+      console.warn('⚠️ Resend rejected email:', data.message || data);
+
+      // Resend test domain constraint:
+      // "You can only send testing emails to your own email address (xyz@gmail.com). To send to other domains, you must verify a domain at resend.com/domains."
+      const allowedMatch = data.message?.match(/\(([^)]+@[^)]+)\)/);
+      if (allowedMatch && allowedMatch[1] && payload.from.includes('resend.dev')) {
+        const testRecipient = allowedMatch[1];
+        console.log(`ℹ️ Test mode detected: delivering to registered Resend account email (${testRecipient})...`);
+
+        const fallbackPayload = {
+          ...payload,
+          to: [testRecipient],
+          subject: `[Test Mode] ${payload.subject} (Intended for: ${Array.isArray(to) ? to.join(', ') : to})`,
+        };
+
+        const retryRes = await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${apiKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(fallbackPayload),
+        });
+
+        const retryData = await retryRes.json();
+        if (retryRes.ok) {
+          console.log('✅ Delivered in test mode to registered Resend email:', testRecipient, 'ID:', retryData.id);
+          return {
+            success: true,
+            data: retryData,
+            testMode: true,
+            deliveredTo: testRecipient,
+            note: 'Delivered to your registered Resend email address. Verify evolvehealthsource.com on resend.com to send to all addresses.',
+          };
+        }
+      }
+
       return {
         success: false,
         error: data.message || data.error || 'Resend API returned an error',
@@ -178,7 +215,7 @@ ${hasAttribution ? `Attribution:
     }
   }
 
-  console.warn("Skipping email send: No email provider configured (neither RESEND_API_KEY nor MAILERSEND_API_KEY).");
+  console.warn("Skipping email send: No email provider configured.");
   return { success: false, error: "No email provider configured." };
 }
 
