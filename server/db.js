@@ -13,6 +13,11 @@ const pool = new Pool({
   connectionString,
 });
 
+// Prevent unhandled errors from crashing the process
+pool.on('error', (err) => {
+  console.warn('Database pool idle client error (non-fatal):', err.message || err);
+});
+
 // Automatically create tables if they don't exist
 export async function initializeDatabase() {
   if (!connectionString) {
@@ -20,8 +25,9 @@ export async function initializeDatabase() {
     return;
   }
 
-  const client = await pool.connect();
+  let client;
   try {
+    client = await pool.connect();
     console.log("Initializing database schema...");
     await client.query(`
       CREATE TABLE IF NOT EXISTS contact_submissions (
@@ -59,9 +65,15 @@ export async function initializeDatabase() {
     `);
     console.log("Database schema initialized successfully.");
   } catch (error) {
-    console.error("Error initializing database schema:", error);
+    console.warn("Warning: Database initialization or connection failed (will continue running):", error.message || error);
   } finally {
-    client.release();
+    if (client) {
+      try {
+        client.release();
+      } catch (_) {
+        // ignore release error
+      }
+    }
   }
 }
 
