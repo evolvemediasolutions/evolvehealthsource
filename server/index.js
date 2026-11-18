@@ -95,8 +95,8 @@ app.post(['/api/contact', '/contact'], async (req, res) => {
       console.warn("Skipped database save: DATABASE_URL not set.");
     }
 
-    // 2. Send email via MailerSend
-    if (process.env.MAILERSEND_API_KEY) {
+    // 2. Send email via Resend or MailerSend
+    if (process.env.RESEND_API_KEY || process.env.MAILERSEND_API_KEY) {
       try {
         const emailResult = await sendContactNotification({
           firstName,
@@ -116,11 +116,11 @@ app.post(['/api/contact', '/contact'], async (req, res) => {
           errorDetails.email = emailResult.error;
         }
       } catch (emailError) {
-        console.error('MailerSend operation failed:', emailError);
+        console.error('Email notification operation failed:', emailError);
         errorDetails.email = emailError.message || emailError;
       }
     } else {
-      console.warn("Skipped email notification: MAILERSEND_API_KEY not set.");
+      console.warn("Skipped email notification: neither RESEND_API_KEY nor MAILERSEND_API_KEY set.");
     }
 
     // 3. Return response based on outcomes
@@ -209,8 +209,8 @@ const handleCareerApplication = async (req, res) => {
       console.warn('Skipped database save for application: DATABASE_URL not set.');
     }
 
-    // 2. Send email notification to chitra@evolvehealthsource.com via MailerSend
-    if (process.env.MAILERSEND_API_KEY) {
+    // 2. Send email notification to chitra@evolvehealthsource.com via Resend or MailerSend
+    if (process.env.RESEND_API_KEY || process.env.MAILERSEND_API_KEY) {
       try {
         const emailResult = await sendJobApplicationNotification({
           name,
@@ -234,11 +234,11 @@ const handleCareerApplication = async (req, res) => {
           errorDetails.email = emailResult.error;
         }
       } catch (emailError) {
-        console.error('MailerSend operation failed for application:', emailError);
+        console.error('Email operation failed for application:', emailError);
         errorDetails.email = emailError.message || emailError;
       }
     } else {
-      console.warn('Skipped email notification: MAILERSEND_API_KEY not set.');
+      console.warn('Skipped email notification: neither RESEND_API_KEY nor MAILERSEND_API_KEY set.');
     }
 
     if (!databaseSaved && !emailSent) {
